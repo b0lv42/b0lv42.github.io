@@ -1078,11 +1078,6 @@ color
 .post-list li:hover a {
   color: #88acdb;
 }
-.pace .pace-progress {
-  background: #77b6ff;
-  -webkit-box-shadow: 0 0 10px rgba(119,182,255,0.7);
-  box-shadow: 0 0 10px rgba(119,182,255,0.7);
-}
 .article-entry ul > li,
 .share,
 .article-category::before,
