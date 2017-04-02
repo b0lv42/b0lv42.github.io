@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="简单的水题！">
+<meta name="description" content="这是两个比较相似的水题啦水题">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HDOJ 1098 【数学题】Ignatius's puzzle">
-<meta property="og:url" content="https://b0lv42.github.io/2017/03/02/HDOJ 1098 【数学题】Ignatius's puzzle/index.html">
+<meta property="og:title" content="HDOJ 1215 【简单题】七夕节  &  HDOJ 1406 【简单题】完数">
+<meta property="og:url" content="https://b0lv42.github.io/2017/03/08/HDOJ 1215 【简单题】七夕节  &  HDOJ 1406 【简单题】完数/index.html">
 <meta property="og:site_name" content="b0lv42'blog - 不断探索!">
-<meta property="og:description" content="简单的水题！">
-<meta property="og:updated_time" content="2017-04-02T08:56:28.000Z">
+<meta property="og:description" content="这是两个比较相似的水题啦水题">
+<meta property="og:updated_time" content="2017-04-02T09:24:31.024Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HDOJ 1098 【数学题】Ignatius's puzzle">
-<meta name="twitter:description" content="简单的水题！">
+<meta name="twitter:title" content="HDOJ 1215 【简单题】七夕节  &  HDOJ 1406 【简单题】完数">
+<meta name="twitter:description" content="这是两个比较相似的水题啦水题">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -54,7 +54,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>HDOJ 1098 【数学题】Ignatius&#39;s puzzle | b0lv42&#39;blog - 不断探索!</title>
+<title>HDOJ 1215 【简单题】七夕节  &amp;  HDOJ 1406 【简单题】完数 | b0lv42&#39;blog - 不断探索!</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -259,11 +259,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-HDOJ 1098 【数学题】Ignatius&#39;s puzzle" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-HDOJ 1215 【简单题】七夕节  &amp;  HDOJ 1406 【简单题】完数" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/03/02/HDOJ 1098 【数学题】Ignatius's puzzle/" class="article-date">
-      <time datetime="2017-03-02T04:51:00.000Z" itemprop="datePublished">2017-03-02</time>
+      <a href="/2017/03/08/HDOJ 1215 【简单题】七夕节  &  HDOJ 1406 【简单题】完数/" class="article-date">
+      <time datetime="2017-03-08T15:35:12.000Z" itemprop="datePublished">2017-03-08</time>
 </a>
 
 
@@ -278,7 +278,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      HDOJ 1098 【数学题】Ignatius&#39;s puzzle
+      HDOJ 1215 【简单题】七夕节  &amp;  HDOJ 1406 【简单题】完数
     </h1>
   
 
@@ -299,22 +299,12 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h3 id="【题目描述】"><a href="#【题目描述】" class="headerlink" title="【题目描述】"></a>【题目描述】</h3><p><a href="http://acm.hdu.edu.cn/showproblem.php?pid=1098" target="_blank" rel="external">http://acm.hdu.edu.cn/showproblem.php?pid=1098</a><br><br></p>
-<h3 id="【思路】"><a href="#【思路】" class="headerlink" title="【思路】"></a>【思路】</h3><p>要求是给定k，求一个最小的a，对任意的x都能使f(x)整除65，所以f(1)=5+13+a<em>k=18+a</em>k，只要枚举a就可以啦，范围是0到64，因为对数m取模的话，结果是0到m-1循环的啦。查了下解题证明，即证明f(x+1)也成立。</p>
-<blockquote>
-<p> 求解思路：</p>
-<p>f(x)=5<em>x^13+13</em>x^5+k<em>a</em>x;</p>
-<p>其中题中”f(x)|65”表示对于任意的整数x,f(x)都能被65整除.所以不难推断:f(x+1)|65也成立.</p>
-<p>f(x+1)=5<em>(x+1)^13+13</em>(x+1)^5+k<em>a</em>(x+1),</p>
-<p>根据二项式定理:(a+b)^n=C(n,0)a^n+C(n,1)a^(n-1)<em>b+C(n,2)a^(n-2)</em>b^2+…+C(n,n)b^n</p>
-<p>得：f(x+1)=5<em>(C(13,0)+C(13,1)</em>x+C(13,2)<em>x^2+…+C(13,13)</em>x^13) +<br>13<em>(C(5,0)+C(5,1)</em>x+…+C(5,5)<em>x^5) + k</em>a*(x+1);</p>
-<p>从中提取出f(x)后得：</p>
-<p>f(x+1)=f(x)+5<em>(C(13,0) + C(13,1)</em>x+C(13,2)<em>x^2+…+C(13,12)</em>x^12) +<br>13<em>(C(5,0)+C(5,1)</em>x+…+C(5,4)<em>x^4) + k</em>a;</p>
-<p>不难看出出了5<em>C(13,0) 、13</em>C(5,0)和k<em>a三项以外，其他项无论x取任意整数都能被65整除,所以如果5</em>C(13,0)<br>+13<em>C(5,0)+k</em>a(相当于18+k*a)能被65整除的话，就可以得出f(x+1)|65了。</p>
-<p>再验证一下f(1)=5+13+k<em>a=18+k</em>a同样适用。</p>
-<p>所以最终的问题就是给定一个非负整数k,使得(18+k*a)|65,输出满足此条件的最小的非负整数a。</p>
-</blockquote>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">      <span class="keyword">int</span> k,flag;</div><div class="line"></div><div class="line">      <span class="keyword">while</span> (~<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;k))</div><div class="line">      &#123;</div><div class="line">            flag=<span class="number">1</span>;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">64</span>;i++)</div><div class="line">            &#123;</div><div class="line">                  <span class="keyword">if</span> ((<span class="number">18</span>+k*i)%<span class="number">65</span>==<span class="number">0</span>)</div><div class="line">                  &#123;</div><div class="line">                        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,i);</div><div class="line">                        flag=<span class="number">0</span>;</div><div class="line">                        <span class="keyword">break</span>;</div><div class="line">                  &#125;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> (flag) <span class="built_in">printf</span>(<span class="string">"no\n"</span>);</div><div class="line">      &#125;</div><div class="line"></div><div class="line">      <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <p>【题目描述】<br>P1215：<br><a href="http://acm.hdu.edu.cn/showproblem.php?pid=1215" target="_blank" rel="external">http://acm.hdu.edu.cn/showproblem.php?pid=1215</a><br>P1406：<br><a href="http://acm.hdu.edu.cn/showproblem.php?pid=1406" target="_blank" rel="external">http://acm.hdu.edu.cn/showproblem.php?pid=1406</a></p>
+<p>【思路】<br>这2个题差不多的，找完数。纯枚举..<br>P.S.1406有坑，sum1可能会大于sum2，要提前判断一下。</p>
+<p>1215：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">#include&lt;stdio.h&gt;</div><div class="line">#include&lt;math.h&gt;</div><div class="line"></div><div class="line">int main()</div><div class="line">&#123;</div><div class="line">      int T,n,x;</div><div class="line">      long long sum;</div><div class="line"></div><div class="line">      scanf(&quot;%d&quot;,&amp;T);</div><div class="line"></div><div class="line">      while (T--)</div><div class="line">      &#123;</div><div class="line">            scanf(&quot;%d&quot;,&amp;n);</div><div class="line">            sum=0;</div><div class="line">            x=floor(sqrt(n)+0.5);</div><div class="line">            for (int i=1;i&lt;=x;i++)</div><div class="line">                  if (n%i==0)</div><div class="line">                  &#123;</div><div class="line">                        sum+=i;</div><div class="line">                        if (n/i&lt;n &amp;&amp; n/i&gt;i) sum+=n/i;</div><div class="line">                  &#125;</div><div class="line">            printf(&quot;%I64d\n&quot;,sum);</div><div class="line">      &#125;</div><div class="line"></div><div class="line">      return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>1406：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">int</span> f[<span class="number">11000</span>];</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">      <span class="keyword">int</span> T,a,b,n,x;</div><div class="line">      <span class="keyword">long</span> <span class="keyword">long</span> sum;</div><div class="line"></div><div class="line">      f[<span class="number">0</span>]=<span class="number">0</span>;f[<span class="number">1</span>]=<span class="number">0</span>;</div><div class="line">      <span class="keyword">for</span> (<span class="keyword">int</span> n=<span class="number">2</span>;n&lt;<span class="number">11000</span>;n++)</div><div class="line">      &#123;</div><div class="line">            sum=<span class="number">0</span>;</div><div class="line">            x=<span class="built_in">floor</span>(<span class="built_in">sqrt</span>(n)+<span class="number">0.5</span>);</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=x;i++)</div><div class="line">                  <span class="keyword">if</span> (n%i==<span class="number">0</span>)</div><div class="line">                  &#123;</div><div class="line">                        sum+=i;</div><div class="line">                        <span class="keyword">if</span> (n/i&lt;n &amp;&amp; n/i&gt;i) sum+=n/i;</div><div class="line">                  &#125;</div><div class="line">            <span class="keyword">if</span> (sum==n) f[n]=f[n<span class="number">-1</span>]+<span class="number">1</span>;</div><div class="line">            <span class="keyword">else</span> f[n]=f[n<span class="number">-1</span>];</div><div class="line">      &#125;</div><div class="line"></div><div class="line">      <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;T);</div><div class="line">      <span class="keyword">while</span> (T--)</div><div class="line">      &#123;</div><div class="line">            <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;a,&amp;b);</div><div class="line">            <span class="keyword">if</span> (a&gt;b) swap(a,b);</div><div class="line">            <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,f[b]-f[a<span class="number">-1</span>]);</div><div class="line">      &#125;</div><div class="line"></div><div class="line">      <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -327,11 +317,17 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2017/03/03/HDOJ 1051 【贪心】 Wooden Sticks/">
-                    HDOJ 1051 【贪心】 Wooden Sticks
+                <a href="/2017/03/09/HDOJ 1874 【FLoyd】【Bellman】畅通工程续/">
+                    HDOJ 1874 【FLoyd】【Bellman】【Dijkstra】畅通工程续
                 </a>
             </div>
         
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2017/03/06/HDOJ 1217 【Floyd】Arbitrage/">
+                    HDOJ 1217 【Floyd】Arbitrage
+                </a>
+            </div>
         
     </nav>
 
@@ -341,7 +337,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#【题目描述】"><span class="toc-number">1.</span> <span class="toc-text">【题目描述】</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#【思路】"><span class="toc-number">2.</span> <span class="toc-text">【思路】</span></a></li></ol>
+            
         
     </div>
     <style>
@@ -377,7 +373,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"HDOJ 1098 【数学题】Ignatius's puzzle　| b0lv42'blog - 不断探索!　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"HDOJ 1215 【简单题】七夕节  &  HDOJ 1406 【简单题】完数　| b0lv42'blog - 不断探索!　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -397,7 +393,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/03/03/HDOJ 1051 【贪心】 Wooden Sticks/" title="上一篇: HDOJ 1051 【贪心】 Wooden Sticks">
+            <a href="/2017/03/09/HDOJ 1874 【FLoyd】【Bellman】畅通工程续/" title="上一篇: HDOJ 1874 【FLoyd】【Bellman】【Dijkstra】畅通工程续">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -405,7 +401,9 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2017/03/06/HDOJ 1217 【Floyd】Arbitrage/" title="下一篇: HDOJ 1217 【Floyd】Arbitrage">
+                <i class="fa fa-angle-right"></i>
+            </a>
         
     </div>
 
