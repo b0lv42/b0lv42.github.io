@@ -1039,7 +1039,7 @@ a {
   font-weight: bold;
   color: #666;
   background: none;
-  opacity: 0.32;
+  opacity: 0.5;
   -webkit-appearance: none;
 }
 .hide-labels:hover {
@@ -2495,7 +2495,7 @@ pre .javascript .function {
   -moz-transition: all 0.15s ease-out 0.1s;
   -ms-transition: all 0.15s ease-out 0.1s;
   transition: all 0.15s ease-out 0.1s;
-  opacity: 0.2;
+  opacity: 0.5;
   cursor: pointer;
   display: block;
 }
