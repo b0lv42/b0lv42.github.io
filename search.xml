@@ -4,20 +4,6 @@
   
     
     <entry>
-      <title><![CDATA[23333]]></title>
-      <url>https://b0lv42.github.io/2017/04/02/www/</url>
-      <content type="html"><![CDATA[<h4 id="哼唧！"><a href="#哼唧！" class="headerlink" title="哼唧！"></a>哼唧！</h4><h3 id="哼唧！-1"><a href="#哼唧！-1" class="headerlink" title="哼唧！"></a>哼唧！</h3><h2 id="哼唧！-2"><a href="#哼唧！-2" class="headerlink" title="哼唧！"></a>哼唧！</h2><h1 id="哼唧！-3"><a href="#哼唧！-3" class="headerlink" title="哼唧！"></a>哼唧！</h1>]]></content>
-      
-        
-        <tags>
-            
-            <tag> ACM题解 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[喵喵喵！]]></title>
       <url>https://b0lv42.github.io/2017/04/01/hello-world/</url>
       <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
@@ -29,6 +15,36 @@
 <p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> 收集的乱七八糟的东西！ </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[喵喵喵！]]></title>
+      <url>https://b0lv42.github.io/2017/03/02/HDOJ%201098%20%E3%80%90%E6%95%B0%E5%AD%A6%E9%A2%98%E3%80%91Ignatius's%20puzzle/</url>
+      <content type="html"><![CDATA[<h3 id="【题目描述】"><a href="#【题目描述】" class="headerlink" title="【题目描述】"></a>【题目描述】</h3><p><a href="http://acm.hdu.edu.cn/showproblem.php?pid=1098" target="_blank" rel="external">http://acm.hdu.edu.cn/showproblem.php?pid=1098</a><br><br></p>
+<h3 id="【思路】"><a href="#【思路】" class="headerlink" title="【思路】"></a>【思路】</h3><p>要求是给定k，求一个最小的a，对任意的x都能使f(x)整除65，所以f(1)=5+13+a<em>k=18+a</em>k，只要枚举a就可以啦，范围是0到64，因为对数m取模的话，结果是0到m-1循环的啦。查了下解题证明，即证明f(x+1)也成立。</p>
+<blockquote>
+<p> 求解思路：</p>
+<p>f(x)=5<em>x^13+13</em>x^5+k<em>a</em>x;</p>
+<p>其中题中”f(x)|65”表示对于任意的整数x,f(x)都能被65整除.所以不难推断:f(x+1)|65也成立.</p>
+<p>f(x+1)=5<em>(x+1)^13+13</em>(x+1)^5+k<em>a</em>(x+1),</p>
+<p>根据二项式定理:(a+b)^n=C(n,0)a^n+C(n,1)a^(n-1)<em>b+C(n,2)a^(n-2)</em>b^2+…+C(n,n)b^n</p>
+<p>得：f(x+1)=5<em>(C(13,0)+C(13,1)</em>x+C(13,2)<em>x^2+…+C(13,13)</em>x^13) +<br>13<em>(C(5,0)+C(5,1)</em>x+…+C(5,5)<em>x^5) + k</em>a*(x+1);</p>
+<p>从中提取出f(x)后得：</p>
+<p>f(x+1)=f(x)+5<em>(C(13,0) + C(13,1)</em>x+C(13,2)<em>x^2+…+C(13,12)</em>x^12) +<br>13<em>(C(5,0)+C(5,1)</em>x+…+C(5,4)<em>x^4) + k</em>a;</p>
+<p>不难看出出了5<em>C(13,0) 、13</em>C(5,0)和k<em>a三项以外，其他项无论x取任意整数都能被65整除,所以如果5</em>C(13,0)<br>+13<em>C(5,0)+k</em>a(相当于18+k*a)能被65整除的话，就可以得出f(x+1)|65了。</p>
+<p>再验证一下f(1)=5+13+k<em>a=18+k</em>a同样适用。</p>
+<p>所以最终的问题就是给定一个非负整数k,使得(18+k*a)|65,输出满足此条件的最小的非负整数a。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">#include&lt;stdio.h&gt;</div><div class="line"></div><div class="line">int main()</div><div class="line">&#123;</div><div class="line">      int k,flag;</div><div class="line"></div><div class="line">      while (~scanf(&quot;%d&quot;,&amp;k))</div><div class="line">      &#123;</div><div class="line">            flag=1;</div><div class="line">            for (int i=1;i&lt;=64;i++)</div><div class="line">            &#123;</div><div class="line">                  if ((18+k*i)%65==0)</div><div class="line">                  &#123;</div><div class="line">                        printf(&quot;%d\n&quot;,i);</div><div class="line">                        flag=0;</div><div class="line">                        break;</div><div class="line">                  &#125;</div><div class="line">            &#125;</div><div class="line">            if (flag) printf(&quot;no\n&quot;);</div><div class="line">      &#125;</div><div class="line"></div><div class="line">      return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 ]]></content>
       
         
