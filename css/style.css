@@ -195,7 +195,6 @@ a {
 }
 #container {
   min-height: 100%;
-  opacity: 0.7;
 }
 #container #mobile-nav {
   display: none;
@@ -248,7 +247,7 @@ a {
   height: 180px;
   background-color: #000;
   position: absolute;
-  opacity: 0.7;
+  opacity: 0.1;
 }
 #container .left-col .intrude-less {
   width: 76%;
@@ -1040,7 +1039,7 @@ a {
   font-weight: bold;
   color: #666;
   background: none;
-  opacity: 0.32;
+  opacity: 0.1;
   -webkit-appearance: none;
 }
 .hide-labels:hover {
