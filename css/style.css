@@ -204,6 +204,7 @@ a {
   position: absolute;
   width: 100%;
   background: #4d4d4d;
+  opacity: 0.1;
 }
 #container #mobile-nav .overlay.fixed {
   position: fixed;
@@ -263,6 +264,7 @@ a {
   right: 0;
   min-height: 100%;
   background: rgba(255,255,255,0.8);
+  opacity: 0.1;
   left: 300px;
   width: auto;
 }
@@ -578,6 +580,7 @@ a {
   position: relative;
   overflow: hidden;
   background: #88acdb;
+  opacity: 0.1;
   -webkit-box-orient: horizontal;
   -webkit-box-pack: center;
   -webkit-box-align: center;
@@ -600,6 +603,7 @@ a {
 }
 #header .profilepic:hover {
   background: #fff;
+  opacity: 0.1;
   border: 5px solid #88acdb;
   -webkit-box-shadow: 0 0 1.5em #88acdb;
   box-shadow: 0 0 1.5em #88acdb;
@@ -1005,6 +1009,7 @@ a {
   top: 61.8%;
   text-align: center;
   line-height: 42px;
+  opacity: 0.1;
 }
 .scroll a {
   display: block;
@@ -1059,6 +1064,7 @@ a {
   display: none;
 }
 .post-list {
+  opacity: 0.1;
   display: none;
   text-align: left;
   font-size: 0.9em;
