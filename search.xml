@@ -27,7 +27,7 @@
     </entry>
     
     <entry>
-      <title><![CDATA[喵喵喵！]]></title>
+      <title><![CDATA[HDOJ 1098 【数学题】Ignatius's puzzle]]></title>
       <url>https://b0lv42.github.io/2017/03/02/HDOJ%201098%20%E3%80%90%E6%95%B0%E5%AD%A6%E9%A2%98%E3%80%91Ignatius's%20puzzle/</url>
       <content type="html"><![CDATA[<h3 id="【题目描述】"><a href="#【题目描述】" class="headerlink" title="【题目描述】"></a>【题目描述】</h3><p><a href="http://acm.hdu.edu.cn/showproblem.php?pid=1098" target="_blank" rel="external">http://acm.hdu.edu.cn/showproblem.php?pid=1098</a><br><br></p>
 <h3 id="【思路】"><a href="#【思路】" class="headerlink" title="【思路】"></a>【思路】</h3><p>要求是给定k，求一个最小的a，对任意的x都能使f(x)整除65，所以f(1)=5+13+a<em>k=18+a</em>k，只要枚举a就可以啦，范围是0到64，因为对数m取模的话，结果是0到m-1循环的啦。查了下解题证明，即证明f(x+1)也成立。</p>
@@ -50,7 +50,7 @@
         
         <tags>
             
-            <tag> 收集的乱七八糟的东西！ </tag>
+            <tag> ACM题解 </tag>
             
         </tags>
         
