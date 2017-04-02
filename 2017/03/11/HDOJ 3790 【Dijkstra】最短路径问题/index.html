@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="这是一个简单的贪心！">
+<meta name="description" content="模板题啦！ovo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HDOJ 1051 【贪心】 Wooden Sticks">
-<meta property="og:url" content="https://b0lv42.github.io/2017/03/03/HDOJ 1051 【贪心】 Wooden Sticks/index.html">
+<meta property="og:title" content="HDOJ 3790 【Dijkstra】最短路径问题">
+<meta property="og:url" content="https://b0lv42.github.io/2017/03/11/HDOJ 3790 【Dijkstra】最短路径问题/index.html">
 <meta property="og:site_name" content="b0lv42'blog - 不断探索!">
-<meta property="og:description" content="这是一个简单的贪心！">
-<meta property="og:updated_time" content="2017-04-02T09:07:03.747Z">
+<meta property="og:description" content="模板题啦！ovo">
+<meta property="og:updated_time" content="2017-04-02T09:42:57.280Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HDOJ 1051 【贪心】 Wooden Sticks">
-<meta name="twitter:description" content="这是一个简单的贪心！">
+<meta name="twitter:title" content="HDOJ 3790 【Dijkstra】最短路径问题">
+<meta name="twitter:description" content="模板题啦！ovo">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -54,7 +54,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>HDOJ 1051 【贪心】 Wooden Sticks | b0lv42&#39;blog - 不断探索!</title>
+<title>HDOJ 3790 【Dijkstra】最短路径问题 | b0lv42&#39;blog - 不断探索!</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -259,11 +259,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-HDOJ 1051 【贪心】 Wooden Sticks" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-HDOJ 3790 【Dijkstra】最短路径问题" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/03/03/HDOJ 1051 【贪心】 Wooden Sticks/" class="article-date">
-      <time datetime="2017-03-03T11:28:39.000Z" itemprop="datePublished">2017-03-03</time>
+      <a href="/2017/03/11/HDOJ 3790 【Dijkstra】最短路径问题/" class="article-date">
+      <time datetime="2017-03-11T13:03:10.000Z" itemprop="datePublished">2017-03-11</time>
 </a>
 
 
@@ -278,7 +278,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      HDOJ 1051 【贪心】 Wooden Sticks
+      HDOJ 3790 【Dijkstra】最短路径问题
     </h1>
   
 
@@ -299,9 +299,9 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h3 id="【题目描述】"><a href="#【题目描述】" class="headerlink" title="【题目描述】"></a>【题目描述】</h3><p><a href="http://acm.hdu.edu.cn/showproblem.php?pid=1051" target="_blank" rel="external">http://acm.hdu.edu.cn/showproblem.php?pid=1051</a><br><br><br><br></p>
-<h3 id="【思路】"><a href="#【思路】" class="headerlink" title="【思路】"></a>【思路】</h3><p>就是一个简单的贪心，我还以为是LIS….<br>思路就是对于每一根木棍，如果它没有使用过的话，如果L和W都&gt;=当前，就用它更新当前，并标记使用过。如果不满足&gt;=，就把它加入队列，作为新的开头。每次都是取出队列头，如此循环，直到所有的木棍全部被切割完成。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">int</span> Use[<span class="number">11000</span>];</div><div class="line"></div><div class="line"><span class="keyword">struct</span> data</div><div class="line">&#123;</div><div class="line">      <span class="keyword">int</span> l,w;</div><div class="line">&#125;wood[<span class="number">11000</span>],change[<span class="number">11000</span>];</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(data a,data b)</span></span></div><div class="line">&#123;</div><div class="line">      <span class="keyword">if</span> (a.l!=b.l) <span class="keyword">return</span> (a.l&lt;b.l);    <span class="comment">//按长度排序</span></div><div class="line">      <span class="keyword">return</span> (a.w&lt;b.w);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">      <span class="keyword">int</span> n,x,y,t,T,ans,num;</div><div class="line"></div><div class="line">      <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;T);</div><div class="line"></div><div class="line">      <span class="keyword">while</span> (T--)</div><div class="line">      &#123;</div><div class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</div><div class="line">            &#123;</div><div class="line">                  Use[i]=<span class="number">1</span>;</div><div class="line">                  <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;wood[i].l,&amp;wood[i].w);</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            sort(wood+<span class="number">1</span>,wood+<span class="number">1</span>+n,cmp);</div><div class="line"></div><div class="line">            x=<span class="number">0</span>;y=<span class="number">0</span>;</div><div class="line">            Use[<span class="number">1</span>]=<span class="number">0</span>;</div><div class="line">            num=<span class="number">1</span>;ans=<span class="number">1</span>;</div><div class="line">            change[<span class="number">1</span>].l=wood[<span class="number">1</span>].l;</div><div class="line">            change[<span class="number">1</span>].w=wood[<span class="number">1</span>].w;</div><div class="line"></div><div class="line">            <span class="keyword">while</span> (num&lt;n)</div><div class="line">            &#123;</div><div class="line">                  t=<span class="number">1</span>;</div><div class="line">                  x=change[<span class="number">1</span>].l;</div><div class="line">                  y=change[<span class="number">1</span>].w;</div><div class="line"></div><div class="line">                  <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</div><div class="line">                        <span class="keyword">if</span> (Use[i]==<span class="number">1</span>)</div><div class="line">                        &#123;</div><div class="line">                              <span class="keyword">if</span> ( x&lt;=wood[i].l &amp;&amp; y&lt;=wood[i].w )</div><div class="line">                              &#123;</div><div class="line">                                    num++;</div><div class="line">                                    x=wood[i].l;</div><div class="line">                                    y=wood[i].w;</div><div class="line">                                    Use[i]=<span class="number">0</span>;</div><div class="line">                              &#125;</div><div class="line">                              <span class="keyword">else</span> <span class="keyword">if</span> (t==<span class="number">1</span>)</div><div class="line">                              &#123;</div><div class="line">                                    num++;</div><div class="line">                                    ans++;</div><div class="line">                                    Use[i]=<span class="number">0</span>;</div><div class="line">                                    change[t].l=wood[i].l;</div><div class="line">                                    change[t].w=wood[i].w;</div><div class="line">                                    t++;</div><div class="line">                              &#125;</div><div class="line">                        &#125;</div><div class="line">            &#125;</div><div class="line">            <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,ans);</div><div class="line">      &#125;</div><div class="line"></div><div class="line">      <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <h3 id="【题目描述】"><a href="#【题目描述】" class="headerlink" title="【题目描述】"></a>【题目描述】</h3><p><a href="http://acm.hdu.edu.cn/showproblem.php?pid=3790" target="_blank" rel="external">http://acm.hdu.edu.cn/showproblem.php?pid=3790</a></p>
+<h3 id="【思路】"><a href="#【思路】" class="headerlink" title="【思路】"></a>【思路】</h3><p>松弛操作每更新一条边，不管被更新的点的cost值是否最小都要被更新，这里wa了3发…..<br>当被更新的点的dis值相等时再检查cost的值是否最小。<br><br><br><br></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> Max=<span class="number">2100000</span>;</div><div class="line"><span class="keyword">typedef</span> pair&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; Pair;</div><div class="line">priority_queue&lt;Pair,<span class="built_in">vector</span>&lt;Pair&gt;,greater&lt;Pair&gt; &gt; Q;</div><div class="line"></div><div class="line"><span class="keyword">int</span> n,S,T,tail,dis[<span class="number">1100</span>],head[<span class="number">1100</span>],cost[<span class="number">1100</span>];</div><div class="line"></div><div class="line"><span class="keyword">struct</span> data</div><div class="line">&#123;</div><div class="line">      <span class="keyword">int</span> c,w,to,next;</div><div class="line">&#125;k,edge[<span class="number">210000</span>];</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">build</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> v,<span class="keyword">int</span> d,<span class="keyword">int</span> p)</span></span></div><div class="line">&#123;</div><div class="line">      edge[tail].w=d;</div><div class="line">      edge[tail].to=v;</div><div class="line">      edge[tail].c=p;</div><div class="line">      edge[tail].next=head[u];</div><div class="line">      head[u]=tail++;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">Dij</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">      Pair s,u;</div><div class="line">      <span class="keyword">int</span> v,val;</div><div class="line"></div><div class="line">      dis[S]=<span class="number">0</span>;</div><div class="line">      cost[S]=<span class="number">0</span>;</div><div class="line">      s.first=<span class="number">0</span>;</div><div class="line">      s.second=S;</div><div class="line">      Q.push(s);</div><div class="line"></div><div class="line">      <span class="keyword">while</span> (!Q.empty())</div><div class="line">      &#123;</div><div class="line">            u=Q.top();</div><div class="line">            Q.pop();</div><div class="line">            v=u.second;</div><div class="line">            val=u.first;</div><div class="line">            <span class="keyword">if</span> (dis[v]&lt;val) <span class="keyword">continue</span>;</div><div class="line"></div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i=head[v];i!=<span class="number">-1</span>;i=edge[i].next)</div><div class="line">            &#123;</div><div class="line">                  k=edge[i];</div><div class="line">                  <span class="keyword">if</span> (dis[k.to]&gt;dis[v]+k.w)</div><div class="line">                  &#123;</div><div class="line">                        dis[k.to]=dis[v]+k.w;</div><div class="line">                        Q.push(Pair(dis[k.to],k.to));</div><div class="line">                        cost[k.to]=cost[v]+k.c;</div><div class="line">                  &#125;</div><div class="line">                  <span class="keyword">else</span> <span class="keyword">if</span> (dis[k.to]==dis[v]+k.w)</div><div class="line">                        cost[k.to]=min(cost[k.to],cost[v]+k.c);</div><div class="line">            &#125;</div><div class="line">      &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">      <span class="keyword">int</span> n,m,u,v,d,p;</div><div class="line"></div><div class="line">      <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n,&amp;m)!=EOF)</div><div class="line">      &#123;</div><div class="line">            <span class="keyword">if</span> (!n &amp;&amp; !m) <span class="keyword">break</span>;</div><div class="line"></div><div class="line">            tail=<span class="number">0</span>;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">1100</span>;i++) head[i]=<span class="number">-1</span>;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">1100</span>;i++) dis[i]=Max;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">1100</span>;i++) cost[i]=Max;</div><div class="line"></div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;i++)</div><div class="line">            &#123;</div><div class="line">                  <span class="built_in">scanf</span>(<span class="string">"%d%d%d%d"</span>,&amp;u,&amp;v,&amp;d,&amp;p);</div><div class="line">                  build(u,v,d,p);</div><div class="line">                  build(v,u,d,p);</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;S,&amp;T);</div><div class="line"></div><div class="line">            Dij();</div><div class="line">            <span class="built_in">printf</span>(<span class="string">"%d %d\n"</span>,dis[T],cost[T]);</div><div class="line">      &#125;</div><div class="line"></div><div class="line">      <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -314,15 +314,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2017/03/04/HDOJ 1290 【递推】献给杭电五十周年校庆的礼物/">
-                    HDOJ 1290 【递推】献给杭电五十周年校庆的礼物
+                <a href="/2017/03/11/HDOJ 2500 【简单题】做一个正气的杭电人/">
+                    HDOJ 2500 【简单题】做一个正气的杭电人
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2017/03/02/HDOJ 1098 【数学题】Ignatius's puzzle/">
-                    HDOJ 1098 【数学题】Ignatius&#39;s puzzle
+                <a href="/2017/03/11/HDOJ 2544 【Dijkstra】最短路/">
+                    HDOJ 2544 【Dijkstra】最短路
                 </a>
             </div>
         
@@ -370,7 +370,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"HDOJ 1051 【贪心】 Wooden Sticks　| b0lv42'blog - 不断探索!　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"HDOJ 3790 【Dijkstra】最短路径问题　| b0lv42'blog - 不断探索!　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -390,7 +390,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/03/04/HDOJ 1290 【递推】献给杭电五十周年校庆的礼物/" title="上一篇: HDOJ 1290 【递推】献给杭电五十周年校庆的礼物">
+            <a href="/2017/03/11/HDOJ 2500 【简单题】做一个正气的杭电人/" title="上一篇: HDOJ 2500 【简单题】做一个正气的杭电人">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -398,7 +398,7 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2017/03/02/HDOJ 1098 【数学题】Ignatius's puzzle/" title="下一篇: HDOJ 1098 【数学题】Ignatius&#39;s puzzle">
+            <a href="/2017/03/11/HDOJ 2544 【Dijkstra】最短路/" title="下一篇: HDOJ 2544 【Dijkstra】最短路">
                 <i class="fa fa-angle-right"></i>
             </a>
         
