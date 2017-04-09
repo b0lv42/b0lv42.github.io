@@ -1,525 +1,236 @@
 <!DOCTYPE html>
-<html lang="zh-Hans">
+<html>
 <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
 
-    <!--[if lt IE 9]>
-        <style>body {display: none; background: none !important} </style>
-        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
-    <![endif]-->
+    
 
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="format-detection" content="telephone=no" />
-<meta name="author" content="b0lv42" />
+    <title>
+      HDOJ 3790 【Dijkstra】最短路径问题 | b0lv42&#39;blog - 不断探索! 
+    </title>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="b0lv42">
+    
+    
 
-
-<meta name="description" content="模板题啦！ovo">
+    <meta name="description" content="模板题啦！ovo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HDOJ 3790 【Dijkstra】最短路径问题">
+<meta property="og:title" content="HDOJ 3790 【Dijkstra】最短路径问题 | b0lv42'blog - 不断探索!">
 <meta property="og:url" content="https://b0lv42.github.io/2017/03/11/HDOJ 3790 【Dijkstra】最短路径问题/index.html">
 <meta property="og:site_name" content="b0lv42'blog - 不断探索!">
 <meta property="og:description" content="模板题啦！ovo">
 <meta property="og:updated_time" content="2017-04-02T09:42:57.280Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HDOJ 3790 【Dijkstra】最短路径问题">
+<meta name="twitter:title" content="HDOJ 3790 【Dijkstra】最短路径问题 | b0lv42'blog - 不断探索!">
 <meta name="twitter:description" content="模板题啦！ovo">
-
-<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
-
-
-
-
-    <link rel="shortcut icon" href="/healthy_bin_cat_128px_547395_easyicon.net.ico">
-
-
-
-    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
-
-
-
-    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
-
-
-
-    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
-    <link href="//cdn.bootcss.com/pace/1.0.2/themes/black/pace-theme-minimal.css" rel="stylesheet">
-
-
-<link rel="stylesheet" href="/css/style.css">
-
-
-
-<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
-
-
-<title>HDOJ 3790 【Dijkstra】最短路径问题 | b0lv42&#39;blog - 不断探索!</title>
-
-<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
-<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
-
-<script>
-    var yiliaConfig = {
-        fancybox: true,
-        animate: true,
-        isHome: false,
-        isPost: true,
-        isArchive: false,
-        isTag: false,
-        isCategory: false,
-        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
-        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
-        search: true
-    }
-</script>
-
-
-    <script>
-        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
-    </script>
-
-
-
-    <script> yiliaConfig.rootUrl = "\/";</script>
-
-
-
-
-
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
 
 </head>
 <body>
-  <div id="container">
-    <div class="left-col">
-    <div class="overlay"></div>
-<div class="intrude-less">
-    <header id="header" class="inner">
-        <a href="/" class="profilepic">
-            <img src="/img/头像.jpeg" class="animated zoomIn">
-        </a>
-        <hgroup>
-          <h1 class="header-author"><a href="/">b0lv42</a></h1>
-        </hgroup>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
 
         
 
-        
-            <form id="search-form">
-            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="true" />
-            <i class="fa fa-times" onclick="resetSearch()"></i>
-            </form>
-            <div id="local-search-result"></div>
-            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
-        
-
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">b0lv42&#39;blog - 不断探索!</a></h1>
+        <hr class="panel-cover__divider" />
 
         
-            <div id="switch-btn" class="switch-btn">
-                <div class="icon">
-                    <div class="icon-ctn">
-                        <div class="icon-wrap icon-house" data-idx="0">
-                            <div class="birdhouse"></div>
-                            <div class="birdhouse_holes"></div>
-                        </div>
-                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
-                            <div class="ribbon"></div>
-                        </div>
-                        
-                        <div class="icon-wrap icon-link hide" data-idx="2">
-                            <div class="loopback_l"></div>
-                            <div class="loopback_r"></div>
-                        </div>
-                        
-                        
-                        <div class="icon-wrap icon-me hide" data-idx="3">
-                            <div class="user"></div>
-                            <div class="shoulder"></div>
-                        </div>
-                        
-                    </div>
-                    
-                </div>
-                <div class="tips-box hide">
-                    <div class="tips-arrow"></div>
-                    <ul class="tips-inner">
-                        <li>菜单</li>
-                        <li>标签</li>
-                        
-                        <li>友情链接</li>
-                        
-                        
-                        <li>关于我</li>
-                        
-                    </ul>
-                </div>
-            </div>
-        
 
-        <div id="switch-area" class="switch-area">
-            <div class="switch-wrap">
-                <section class="switch-part switch-part1">
-                    <nav class="header-menu">
-                        <ul>
-                        
-                            <li><a href="/">主页</a></li>
-                        
-                            <li><a href="/archives/">所有文章</a></li>
-                        
-                        </ul>
-                    </nav>
-                    <nav class="header-nav">
-                        <ul class="social">
-                            
-                                <a class="fa Email" href="https://myaccount.google.com/?utm_source=OGB" title="Email"></a>
-                            
-                                <a class="fa 知乎" href="https://www.zhihu.com/people/liu-yiguo-75/activities" title="知乎"></a>
-                            
-                                <a class="fa GitHub" href="https://github.com/b0lv42" title="GitHub"></a>
-                            
-                                <a class="fa 网易云音乐" href="http://music.163.com/#/user/home?id=41091447" title="网易云音乐"></a>
-                            
-                        </ul>
-                    </nav>
-                </section>
-                
-                
-                <section class="switch-part switch-part2">
-                    <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ACM题解/">ACM题解</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/收集的乱七八糟的东西！/">收集的乱七八糟的东西！</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/教程/">教程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/资料/">资料</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/零零碎碎的知识！/">零零碎碎的知识！</a></li></ul>
-                    </div>
-                </section>
-                
-                
-                
-                <section class="switch-part switch-part3">
-                    <div id="js-friends">
-                    
-                      <a class="main-nav-link switch-friends-link" href="http://acdoge.com">Doge</a>
-                    
-                      <a class="main-nav-link switch-friends-link" href="http://mikumiku.com.cn/">xana</a>
-                    
-                      <a class="main-nav-link switch-friends-link" href="https://blog.blink.moe/">Blink</a>
-                    
-                      <a class="main-nav-link switch-friends-link" href="http://cyru1s.com/">Cyrus</a>
-                    
-                      <a class="main-nav-link switch-friends-link" href="https://cyris.cn/">Cyris</a>
-                    
-                      <a class="main-nav-link switch-friends-link" href="http://spineee.space/">Spine</a>
-                    
-                      <a class="main-nav-link switch-friends-link" href="http://vincecoffee.cn/">Vince</a>
-                    
-                      <a class="main-nav-link switch-friends-link" href="https://hammerorz.com">Hammer</a>
-                    
-                      <a class="main-nav-link switch-friends-link" href="http://ngc7293.xyz/">ngc7293</a>
-                    
-                      <a class="main-nav-link switch-friends-link" href="http://zyf3333.github.io/">zyf3333</a>
-                    
-                      <a class="main-nav-link switch-friends-link" href="http://imantinomy.space/">Antinomy</a>
-                    
-                      <a class="main-nav-link switch-friends-link" href="http://www.aspirepig.cn/">Aspirepig</a>
-                    
-                      <a class="main-nav-link switch-friends-link" href="http://fantasyqt.ink">fantasyqt</a>
-                    
-                      <a class="main-nav-link switch-friends-link" href="http://veritas501.space">Veritas501</a>
-                    
-                    </div>
-                </section>
-                
+        <div class="navigation-wrapper">
 
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
                 
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
                 
-                <section class="switch-part switch-part4">
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+              
                 
-                    <div id="js-aboutme">生命不息，折腾不止！</div>
-                </section>
-                
-            </div>
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
         </div>
-    </header>                
-</div>
-    </div>
-    <div class="mid-col">
-      <nav id="mobile-nav">
-      <div class="overlay">
-          <div class="slider-trigger"></div>
-          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">b0lv42</a></h1>
+
       </div>
-    <div class="intrude-less">
-        <header id="header" class="inner">
-            <a href="/" class="profilepic">
-                <img src="/img/头像.jpeg" class="animated zoomIn">
-            </a>
-            <hgroup>
-              <h1 class="header-author"><a href="/" title="回到主页">b0lv42</a></h1>
-            </hgroup>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
             
-            <nav class="header-menu">
-                <ul>
-                
-                    <li><a href="/">主页</a></li>
-                
-                    <li><a href="/archives/">所有文章</a></li>
-                
-                <div class="clearfix"></div>
-                </ul>
-            </nav>
-            <nav class="header-nav">
-                        <ul class="social">
-                            
-                                <a class="fa Email" target="_blank" href="https://myaccount.google.com/?utm_source=OGB" title="Email"></a>
-                            
-                                <a class="fa 知乎" target="_blank" href="https://www.zhihu.com/people/liu-yiguo-75/activities" title="知乎"></a>
-                            
-                                <a class="fa GitHub" target="_blank" href="https://github.com/b0lv42" title="GitHub"></a>
-                            
-                                <a class="fa 网易云音乐" target="_blank" href="http://music.163.com/#/user/home?id=41091447" title="网易云音乐"></a>
-                            
-                        </ul>
-            </nav>
-        </header>                
-    </div>
-    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
-</nav>
-      <div class="body-wrap"><article id="post-HDOJ 3790 【Dijkstra】最短路径问题" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/03/11/HDOJ 3790 【Dijkstra】最短路径问题/" class="article-date">
-      <time datetime="2017-03-11T13:03:10.000Z" itemprop="datePublished">2017-03-11</time>
-</a>
 
+<article class="post-container post-container--single">
 
-    </div>
-  
-  <div class="article-inner">
+  <header class="post-header">
     
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      HDOJ 3790 【Dijkstra】最短路径问题
-    </h1>
-  
+    <h1 class="post-title">HDOJ 3790 【Dijkstra】最短路径问题</h1>
 
-      </header>
-      
-      <div class="article-info article-info-post">
-        
-
-        
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ACM题解/">ACM题解</a></li></ul>
-    </div>
-
-        <div class="clearfix"></div>
-      </div>
-      
     
-    <div class="article-entry" itemprop="articleBody">
-      
+
+    <div class="post-meta">
+      <time datetime="2017-03-11" class="post-meta__date date">2017-03-11</time> 
+
+      <span class="post-meta__tags tags">
+
           
-        <h3 id="【题目描述】"><a href="#【题目描述】" class="headerlink" title="【题目描述】"></a>【题目描述】</h3><p><a href="http://acm.hdu.edu.cn/showproblem.php?pid=3790" target="_blank" rel="external">http://acm.hdu.edu.cn/showproblem.php?pid=3790</a></p>
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/ACM题解/">ACM题解</a>
+            </font>
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h3 id="【题目描述】"><a href="#【题目描述】" class="headerlink" title="【题目描述】"></a>【题目描述】</h3><p><a href="http://acm.hdu.edu.cn/showproblem.php?pid=3790" target="_blank" rel="external">http://acm.hdu.edu.cn/showproblem.php?pid=3790</a></p>
 <h3 id="【思路】"><a href="#【思路】" class="headerlink" title="【思路】"></a>【思路】</h3><p>松弛操作每更新一条边，不管被更新的点的cost值是否最小都要被更新，这里wa了3发…..<br>当被更新的点的dis值相等时再检查cost的值是否最小。<br><br><br><br></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> Max=<span class="number">2100000</span>;</div><div class="line"><span class="keyword">typedef</span> pair&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; Pair;</div><div class="line">priority_queue&lt;Pair,<span class="built_in">vector</span>&lt;Pair&gt;,greater&lt;Pair&gt; &gt; Q;</div><div class="line"></div><div class="line"><span class="keyword">int</span> n,S,T,tail,dis[<span class="number">1100</span>],head[<span class="number">1100</span>],cost[<span class="number">1100</span>];</div><div class="line"></div><div class="line"><span class="keyword">struct</span> data</div><div class="line">&#123;</div><div class="line">      <span class="keyword">int</span> c,w,to,next;</div><div class="line">&#125;k,edge[<span class="number">210000</span>];</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">build</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> v,<span class="keyword">int</span> d,<span class="keyword">int</span> p)</span></span></div><div class="line">&#123;</div><div class="line">      edge[tail].w=d;</div><div class="line">      edge[tail].to=v;</div><div class="line">      edge[tail].c=p;</div><div class="line">      edge[tail].next=head[u];</div><div class="line">      head[u]=tail++;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">Dij</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">      Pair s,u;</div><div class="line">      <span class="keyword">int</span> v,val;</div><div class="line"></div><div class="line">      dis[S]=<span class="number">0</span>;</div><div class="line">      cost[S]=<span class="number">0</span>;</div><div class="line">      s.first=<span class="number">0</span>;</div><div class="line">      s.second=S;</div><div class="line">      Q.push(s);</div><div class="line"></div><div class="line">      <span class="keyword">while</span> (!Q.empty())</div><div class="line">      &#123;</div><div class="line">            u=Q.top();</div><div class="line">            Q.pop();</div><div class="line">            v=u.second;</div><div class="line">            val=u.first;</div><div class="line">            <span class="keyword">if</span> (dis[v]&lt;val) <span class="keyword">continue</span>;</div><div class="line"></div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i=head[v];i!=<span class="number">-1</span>;i=edge[i].next)</div><div class="line">            &#123;</div><div class="line">                  k=edge[i];</div><div class="line">                  <span class="keyword">if</span> (dis[k.to]&gt;dis[v]+k.w)</div><div class="line">                  &#123;</div><div class="line">                        dis[k.to]=dis[v]+k.w;</div><div class="line">                        Q.push(Pair(dis[k.to],k.to));</div><div class="line">                        cost[k.to]=cost[v]+k.c;</div><div class="line">                  &#125;</div><div class="line">                  <span class="keyword">else</span> <span class="keyword">if</span> (dis[k.to]==dis[v]+k.w)</div><div class="line">                        cost[k.to]=min(cost[k.to],cost[v]+k.c);</div><div class="line">            &#125;</div><div class="line">      &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">      <span class="keyword">int</span> n,m,u,v,d,p;</div><div class="line"></div><div class="line">      <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n,&amp;m)!=EOF)</div><div class="line">      &#123;</div><div class="line">            <span class="keyword">if</span> (!n &amp;&amp; !m) <span class="keyword">break</span>;</div><div class="line"></div><div class="line">            tail=<span class="number">0</span>;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">1100</span>;i++) head[i]=<span class="number">-1</span>;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">1100</span>;i++) dis[i]=Max;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">1100</span>;i++) cost[i]=Max;</div><div class="line"></div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;i++)</div><div class="line">            &#123;</div><div class="line">                  <span class="built_in">scanf</span>(<span class="string">"%d%d%d%d"</span>,&amp;u,&amp;v,&amp;d,&amp;p);</div><div class="line">                  build(u,v,d,p);</div><div class="line">                  build(v,u,d,p);</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;S,&amp;T);</div><div class="line"></div><div class="line">            Dij();</div><div class="line">            <span class="built_in">printf</span>(<span class="string">"%d %d\n"</span>,dis[T],cost[T]);</div><div class="line">      &#125;</div><div class="line"></div><div class="line">      <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
-      
-    </div>
-    
-  </div>
+  </section>
+
   
-    
-
-
-    <nav id="article-nav">
-        
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2017/03/11/HDOJ 2500 【简单题】做一个正气的杭电人/">
-                    HDOJ 2500 【简单题】做一个正气的杭电人
-                </a>
-            </div>
-        
-        
-            <div id="article-nav-older" class="article-nav-title">
-                <a href="/2017/03/11/HDOJ 2544 【Dijkstra】最短路/">
-                    HDOJ 2544 【Dijkstra】最短路
-                </a>
-            </div>
-        
-    </nav>
-
   
 </article>
 
-    <div id="toc" class="toc-article">
-        <strong class="toc-title">文章目录</strong>
-        
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#【题目描述】"><span class="toc-number">1.</span> <span class="toc-text">【题目描述】</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#【思路】"><span class="toc-number">2.</span> <span class="toc-text">【思路】</span></a></li></ol>
-        
-    </div>
-    <style>
-        .left-col .switch-btn,
-        .left-col .switch-area {
-            display: none;
-        }
-        .toc-level-3 i,
-        .toc-level-3 ol {
-            display: none !important;
-        }
-    </style>
 
-    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+            <footer class="footer">
 
-    <script>
-        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
-    </script>
-
-
-
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
     
-<div class="share">
-    
-        <div class="bdsharebuttonbox">
-            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
-            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
-            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
-            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
-            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
-            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
-            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
-        </div>
-        <script>
-            window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"HDOJ 3790 【Dijkstra】最短路径问题　| b0lv42'blog - 不断探索!　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
-        </script>
-    
-
-    
-</div>
-
-
-
-
-
-
-
-    
-
-
-
-
-    <div class="scroll" id="post-nav-button">
-        
-            <a href="/2017/03/11/HDOJ 2500 【简单题】做一个正气的杭电人/" title="上一篇: HDOJ 2500 【简单题】做一个正气的杭电人">
-                <i class="fa fa-angle-left"></i>
-            </a>
-        
-
-        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
-
-        
-            <a href="/2017/03/11/HDOJ 2544 【Dijkstra】最短路/" title="下一篇: HDOJ 2544 【Dijkstra】最短路">
-                <i class="fa fa-angle-right"></i>
-            </a>
-        
-    </div>
-
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/04/02/搭建博客/">利用hexo在windows下搭建静态博客ovo</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/02/找图片啊图标啊什么的/">找图片啊图标啊什么的</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/28/汇编语言入门/">汇编语言入门qwq</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/23/linux的fork(),waitpid()及wait()的用法/">linux的fork(),waitpid()及wait()的用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/11/HDOJ 2500 【简单题】做一个正气的杭电人/">HDOJ 2500 【简单题】做一个正气的杭电人</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/11/HDOJ 3790 【Dijkstra】最短路径问题/">HDOJ 3790 【Dijkstra】最短路径问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/11/HDOJ 2544 【Dijkstra】最短路/">HDOJ 2544 【Dijkstra】最短路</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/10/HDOJ 2066 【Dijkstra】一个人的旅行/">HDOJ 2066 【Dijkstra】一个人的旅行</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/09/HDOJ 1874 【FLoyd】【Bellman】畅通工程续/">HDOJ 1874 【FLoyd】【Bellman】【Dijkstra】畅通工程续</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/08/HDOJ 1215 【简单题】七夕节  &  HDOJ 1406 【简单题】完数/">HDOJ 1215 【简单题】七夕节  &  HDOJ 1406 【简单题】完数</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/06/HDOJ 1217 【Floyd】Arbitrage/">HDOJ 1217 【Floyd】Arbitrage</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/05/HDOJ 1869 【Floyd】六度分离/">HDOJ 1869 【Floyd】六度分离</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/04/HDOJ 1290 【递推】献给杭电五十周年校庆的礼物/">HDOJ 1290 【递推】献给杭电五十周年校庆的礼物</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/03/HDOJ 1051 【贪心】 Wooden Sticks/">HDOJ 1051 【贪心】 Wooden Sticks</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/02/HDOJ 1098 【数学题】Ignatius's puzzle/">HDOJ 1098 【数学题】Ignatius's puzzle</a></li></ul>
-
-
-
-
-    <script>
-        
-    </script>
-</div>
-      <footer id="footer">
-    <div class="outer">
-        <div id="footer-info">
-            <div class="footer-left">
-                <i class="fa fa-copyright"></i> 
-                2016-2017 b0lv42
-            </div>
-            <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
-            </div>
-        </div>
-        
-            <div class="visit">
-                
-                    <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
-                        </span>
-                    </span>
-                
-                
-                    <span>| </span>
-                
-                
-                    <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
-                        </span>
-                    </span>
-                
-            </div>
-        
-    </div>
 </footer>
+        </div>
     </div>
-    
-<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
 
-    <script>
-        $(document).ready(function() {
-            var iPad = window.navigator.userAgent.indexOf('iPad');
-            if (iPad > -1 || $(".left-col").css("display") === "none") {
-                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
-                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
-                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
-            }
-            else {
-                var backgroundnum = 23;
-                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
-                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
-            }
-        })
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
     </script>
 
 
-
-
-
-<div class="scroll" id="scroll">
-    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
-</div>
-<script>
-    // Open in New Window
     
-        var oOpenInNew = {
-            
-            
-             post: ".article-entry a[href], .copyright a[href]", 
-            
-            
-            
-             archives: ".archive-article-title", 
-             miniArchives: "a.post-list-link", 
-            
-             friends: "#js-friends a", 
-             socail: ".social a" 
-        }
-        for (var x in oOpenInNew) {
-            $(oOpenInNew[x]).attr("target", "_blank");
-        }
-    
-</script>
 
-<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-  </div>
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
 </body>
 </html>
