@@ -15,14 +15,16 @@
 
 
 
-<meta name="keywords">
-<meta property="og:type" content="website">
-<meta property="og:title" content="标签云">
-<meta property="og:url" content="https://b0lv42.github.io/tags/index.html">
+<meta name="description" content="操作系统的期末课设第一项qwq">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux自定义系统调用">
+<meta property="og:url" content="https://b0lv42.github.io/2017/04/19/向linux内核添加系统调用/index.html">
 <meta property="og:site_name" content="b0lv42'blog - 不断探索!">
-<meta property="og:updated_time" content="2017-04-09T09:18:24.660Z">
+<meta property="og:description" content="操作系统的期末课设第一项qwq">
+<meta property="og:updated_time" content="2017-04-24T10:38:59.367Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="标签云">
+<meta name="twitter:title" content="Linux自定义系统调用">
+<meta name="twitter:description" content="操作系统的期末课设第一项qwq">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -52,7 +54,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>标签云 | b0lv42&#39;blog - 不断探索!</title>
+<title>Linux自定义系统调用 | b0lv42&#39;blog - 不断探索!</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -62,7 +64,7 @@
         fancybox: true,
         animate: true,
         isHome: false,
-        isPost: false,
+        isPost: true,
         isArchive: false,
         isTag: false,
         isCategory: false,
@@ -291,11 +293,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="page-undefined" class="article article-type-page" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-向linux内核添加系统调用" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/tags/index.html" class="article-date">
-      <time datetime="2017-04-09T09:18:24.660Z" itemprop="datePublished">2017-04-09</time>
+      <a href="/2017/04/19/向linux内核添加系统调用/" class="article-date">
+      <time datetime="2017-04-19T11:42:12.708Z" itemprop="datePublished">2017-04-19</time>
 </a>
 
 
@@ -310,7 +312,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      标签云
+      Linux自定义系统调用
     </h1>
   
 
@@ -321,7 +323,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/">undefined</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/">undefined</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/">undefined</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/">undefined</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大作业/">大作业</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -331,86 +333,42 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <style>
-    .article-meta { display: none; }
-    #container .article .article-title { padding-right: 0; }
-    .article-header {
-        padding: 0;
-        padding-top: 26px;
-        border-left: none;
-        text-align: center;
-    }
-    .article-header:hover { border-left: none; }
-    .article-title { font-size: 1.6em }
-    .article-entry hr { margin: 0;}
-    .article-meta,
-    #container .article-info-post.article-info { display: none;}
-    #container .article .article-title { padding: 0; }
-</style>
+        <p>原文来自：<a href="https://tecotaku.cn/blog/?p=256" target="_blank" rel="external">Sino大佬的博客</a><br><br><br><br></p>
+<h2 id="添加系统调用"><a href="#添加系统调用" class="headerlink" title="添加系统调用"></a>添加系统调用</h2><p><br><br><br></p>
+<h3 id="添加系统调用的头文件索引"><a href="#添加系统调用的头文件索引" class="headerlink" title="添加系统调用的头文件索引"></a>添加系统调用的头文件索引</h3><p>我们要调用syscall是通过unistd提供的一系列系统接口，其中由C提供的接口需要通过修改<code>unistd_64.h</code>这个文件来指定。<br>打开是存放内核源码的地方，进入子目录<code>arch/x86/include/generated/uapi/asm/</code></p>
+<blockquote>
+<p>比如在我的Linux里此文件是位于 <code>/usr/src/linux-4.10.8/arch/x86/include/generated/uapi/asm/</code> 里的<br>通过使用vim或者自带的gedit打开这个文件，因为打开这个文件需要管理员权限，所以需要在命令前加上sudo。在endif之前添加一个新的系统调用号：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#define __NR_qwq 333</div></pre></td></tr></table></figure></p>
+<p><code>333</code>表示系统调用号，不一定要和前面的连续，只要不重复就行啦，<code>qwq</code>则是系统调用名。</p>
+</blockquote>
+<h3 id="修改系统调用向量表"><a href="#修改系统调用向量表" class="headerlink" title="修改系统调用向量表"></a>修改系统调用向量表</h3><p>在<code>/usr/src/linux-4.10.8/arch/x86/entry/syscalls</code>中打开<code>syscall_64.tbl</code>文件，向里面添加：</p>
+<blockquote>
+<p>333 64 qwq sys_qwq<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//以内核版本为例，我的版本是4.10.8所以是进入linux-4.10.8文件夹</div><div class="line">//此处的333与你之前添加的系统调用号一致，qwq是调用函数名，sys_qwq是实际的调用函数，这个名字和调用函数名没有关系哦。</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="添加调用实现"><a href="#添加调用实现" class="headerlink" title="添加调用实现"></a>添加调用实现</h3><p>/* 后就是添加通过调用号要调用到的程序了 打开<code>/usr/src/linux-4.10.8/include/linux/syscalls.h</code>添加一个函数声明</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function">asmlinkage <span class="keyword">long</span> <span class="title">sys_qwq</span><span class="params">(<span class="keyword">void</span>)</span></span>;</div></pre></td></tr></table></figure>
+<p>*/</p>
+<p>然后打开<code>/usr/src/linux-4.10.8/kernel/sys.c</code>，并在结尾添加函数：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">SYSCALL_DEFINE2(qwq,<span class="keyword">long</span>,a,<span class="keyword">long</span>,b)</div><div class="line">&#123;</div><div class="line">	<span class="keyword">int</span> i,t;</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>DEFINE后面的数字是传入的参数个数，<code>qwq</code>为入口地址，注意这里参数类型和参数名字之间均要用<code>,</code>隔开<br>通过 传入一个long型数据和一个字符串到内核空间，在内核空间打印完后返回一个1</p>
+</blockquote>
+<h3 id="重新编译"><a href="#重新编译" class="headerlink" title="重新编译"></a>重新编译</h3><p>确定所有文件保存后，执行:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ sudo make -j6 bzImage   //内核数+2</div><div class="line">$ sudo make install</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>然后要重启哦！</p>
+</blockquote>
+<p><br><br><br></p>
+<h2 id="使用系统调用"><a href="#使用系统调用" class="headerlink" title="使用系统调用"></a>使用系统调用</h2><p><br><br><br></p>
+<h3 id="编写一个小程序"><a href="#编写一个小程序" class="headerlink" title="编写一个小程序"></a>编写一个小程序</h3><p>新建一个文件 test.cpp 输入以下代码<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/syscall.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">long</span> ret = syscall(<span class="number">333</span>); <span class="comment">//syscall 调用号 参数1 之后为系统调用的参数列表</span></div><div class="line">    <span class="built_in">printf</span>(<span class="string">"result is %ld\n"</span>, ret);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="编译程序"><a href="#编译程序" class="headerlink" title="编译程序"></a>编译程序</h3><p>输入命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ g++ test.cpp -o <span class="built_in">test</span></div></pre></td></tr></table></figure></p>
+<p>等待执行完之后，程序就编译成功啦</p>
+<h3 id="执行程序"><a href="#执行程序" class="headerlink" title="执行程序"></a>执行程序</h3><p>输入命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo ./<span class="built_in">test</span></div></pre></td></tr></table></figure></p>
+<p>屏幕上会打印出 <code>result is 1</code> 因为我们的系统调用返回数字就是1</p>
+<h3 id="查看内核输出信息"><a href="#查看内核输出信息" class="headerlink" title="查看内核输出信息"></a>查看内核输出信息</h3><p>输入命令:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ dmesg | grep <span class="string">"hello"</span></div></pre></td></tr></table></figure></p>
+<p>即可看到内核中输出的printk信息</p>
+<blockquote>
+<p>grep “hello” 为过滤出包含”hello”的信息<br>此处有坑…如果是在CB里面运行的，记得把运行弹出的shell关掉啊，不然看不到输出消息的…qwq</p>
+</blockquote>
+<p>Printk()会依据日志级别将指定信息输出到控制台或日志文件中，其格式为：<br>printk(日志级别 “消息文本”)；<br>如 printk(KERN_ALERT”hello,world\n”);<br>一般情况下，优先级高于控制台日志级别的消息将被打印到控制台，优先级低于控制台日志级别的消息将被打印到 messages 日志文件中，而在伪终端下不打印任何的信息。有关其更详细的使用说明请大家自行查阅资料学习。<br>加载模块后，用户可使用 dmesg 命令查看模块初始化函数中的输出信息，如使用 “ dmesg | tail -20 ” 来输出“dmesg”命令的最后 20 行日志。</p>
 
-
-    <!-- Tag Cloud Page -->
-    <hr>
-<br>
-
-
-<p class="count"></p>
-
-<div class="tags">
-    <a href="/tags/ACM题解/" style="font-size: 35px; color: #000">ACM题解</a> <a href="/tags/Linux/" style="font-size: 16px; color: #808080">Linux</a> <a href="/tags/biantai/" style="font-size: 16px; color: #808080">biantai</a> <a href="/tags/大作业/" style="font-size: 16px; color: #808080">大作业</a> <a href="/tags/收集的乱七八糟的东西！/" style="font-size: 16px; color: #808080">收集的乱七八糟的东西！</a> <a href="/tags/教程/" style="font-size: 16px; color: #808080">教程</a> <a href="/tags/资料/" style="font-size: 16px; color: #808080">资料</a>
-</div>
-<style>
-    .category-list li{
-        display: inline-block;
-        margin: 0 1em .5em 0;
-        padding: 4px;
-        border: 1px solid lightgray;
-        font-size: 1.2rem;
-    }
-    .category-list a { color: gray; }
-    .category-list-item:hover a {
-        color: gray;
-        text-decoration: none;
-    }
-    .category-list-count {
-        margin-left: 2px;
-        font-size: .9rem;
-    }
-    .article-entry ul li:before{ display: none; }
-    .article-inner { text-align: center; }
-    .tags {
-        max-width: 42em;
-        margin: 2em auto;
-        margin-top: 0em;
-    }
-    .tags a {
-        margin-right: 1em;
-        line-height: 65px;
-        border-bottom: 1px solid gray;
-        white-space: nowrap;
-        transition: border-bottom .5s;
-    }
-    .tags a:hover {
-        border-bottom: 3px dotted gray;
-        text-decoration: none;
-    }
-    #count > span {
-        margin: auto .2em;
-        font-weight: bold;
-    }
-</style>
-
-<!-- Count tags and categories -->
-<p id="count">
-        已有<span><script>document.write($(".category-list-item").length)</script></span>个分类，
-        共计<span><script>document.write($(".tags > a").length)</script></span>个标签
-</p>
-<script>
-    $('#count').appendTo('.count');
-</script>
-
-          
-        
       
     </div>
     
@@ -419,8 +377,48 @@
     
 
 
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2017/04/21/qwq/">
+                    哇呀呀！
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2017/04/02/搭建博客/">
+                    利用hexo在windows下搭建静态博客ovo
+                </a>
+            </div>
+        
+    </nav>
+
   
 </article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#添加系统调用"><span class="toc-number">1.</span> <span class="toc-text">添加系统调用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#添加系统调用的头文件索引"><span class="toc-number">1.1.</span> <span class="toc-text">添加系统调用的头文件索引</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改系统调用向量表"><span class="toc-number">1.2.</span> <span class="toc-text">修改系统调用向量表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#添加调用实现"><span class="toc-number">1.3.</span> <span class="toc-text">添加调用实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#重新编译"><span class="toc-number">1.4.</span> <span class="toc-text">重新编译</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用系统调用"><span class="toc-number">2.</span> <span class="toc-text">使用系统调用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#编写一个小程序"><span class="toc-number">2.1.</span> <span class="toc-text">编写一个小程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#编译程序"><span class="toc-number">2.2.</span> <span class="toc-text">编译程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#执行程序"><span class="toc-number">2.3.</span> <span class="toc-text">执行程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看内核输出信息"><span class="toc-number">2.4.</span> <span class="toc-text">查看内核输出信息</span></a></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
 
 
 
@@ -438,7 +436,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"标签云　| b0lv42'blog - 不断探索!　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Linux自定义系统调用　| b0lv42'blog - 不断探索!　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -451,6 +449,28 @@
 
 
 
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2017/04/21/qwq/" title="上一篇: 哇呀呀！">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2017/04/02/搭建博客/" title="下一篇: 利用hexo在windows下搭建静态博客ovo">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/04/21/32位机设置16位段内地址的意义/">32位机设置16位短地址的意义</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/21/qwq/">哇呀呀！</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/19/向linux内核添加系统调用/">Linux自定义系统调用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/02/搭建博客/">利用hexo在windows下搭建静态博客ovo</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/02/找图片啊图标啊什么的/">找图片啊图标啊什么的</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/28/汇编语言入门/">汇编语言入门qwq</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/11/HDOJ 2500 【简单题】做一个正气的杭电人/">HDOJ 2500 【简单题】做一个正气的杭电人</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/11/HDOJ 3790 【Dijkstra】最短路径问题/">HDOJ 3790 【Dijkstra】最短路径问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/11/HDOJ 2544 【Dijkstra】最短路/">HDOJ 2544 【Dijkstra】最短路</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/10/HDOJ 2066 【Dijkstra】一个人的旅行/">HDOJ 2066 【Dijkstra】一个人的旅行</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/09/HDOJ 1874 【FLoyd】【Bellman】畅通工程续/">HDOJ 1874 【FLoyd】【Bellman】【Dijkstra】畅通工程续</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/08/HDOJ 1215 【简单题】七夕节  &  HDOJ 1406 【简单题】完数/">HDOJ 1215 【简单题】七夕节  &  HDOJ 1406 【简单题】完数</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/06/HDOJ 1217 【Floyd】Arbitrage/">HDOJ 1217 【Floyd】Arbitrage</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/05/HDOJ 1869 【Floyd】六度分离/">HDOJ 1869 【Floyd】六度分离</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/04/HDOJ 1290 【递推】献给杭电五十周年校庆的礼物/">HDOJ 1290 【递推】献给杭电五十周年校庆的礼物</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/03/HDOJ 1051 【贪心】 Wooden Sticks/">HDOJ 1051 【贪心】 Wooden Sticks</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/02/HDOJ 1098 【数学题】Ignatius's puzzle/">HDOJ 1098 【数学题】Ignatius's puzzle</a></li></ul>
 
 
 
