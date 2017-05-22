@@ -21,7 +21,7 @@
 <meta property="og:url" content="https://b0lv42.github.io/2017/04/19/向linux内核添加系统调用/index.html">
 <meta property="og:site_name" content="b0lv42'blog - 不断探索!">
 <meta property="og:description" content="操作系统的期末课设第一项qwq 哇还没有写完的">
-<meta property="og:updated_time" content="2017-04-24T10:47:26.000Z">
+<meta property="og:updated_time" content="2017-05-13T08:25:48.084Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux自定义系统调用">
 <meta name="twitter:description" content="操作系统的期末课设第一项qwq 哇还没有写完的">
@@ -186,7 +186,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ACM题解/">ACM题解</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/大作业/">大作业</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/收集的乱七八糟的东西！/">收集的乱七八糟的东西！</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/教程/">教程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/资料/">资料</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/零零碎碎的知识！/">零零碎碎的知识！</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ACM题解/">ACM题解</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CTF/">CTF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/大作业/">大作业</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/收集的乱七八糟的东西！/">收集的乱七八糟的东西！</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/教程/">教程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/资料/">资料</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/零零碎碎的知识！/">零零碎碎的知识！</a></li></ul>
                     </div>
                 </section>
                 
@@ -335,8 +335,9 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>原文来自：<a href="https://tecotaku.cn/blog/?p=256" target="_blank" rel="external">Sino大佬的博客</a><br><br><br><br></p>
-<h2 id="添加系统调用"><a href="#添加系统调用" class="headerlink" title="添加系统调用"></a>添加系统调用</h2><p><br><br><br></p>
+        <p>原文来自：<a href="https://tecotaku.cn/blog/?p=256" target="_blank" rel="external">Sino大佬的博客</a></p>
+<p><br></p>
+<h2 id="添加系统调用"><a href="#添加系统调用" class="headerlink" title="添加系统调用"></a>添加系统调用</h2><p><br></p>
 <h3 id="添加系统调用的头文件索引"><a href="#添加系统调用的头文件索引" class="headerlink" title="添加系统调用的头文件索引"></a>添加系统调用的头文件索引</h3><p>我们要调用syscall是通过unistd提供的一系列系统接口，其中由C提供的接口需要通过修改<code>unistd_64.h</code>这个文件来指定。<br>打开是存放内核源码的地方，进入子目录<code>arch/x86/include/generated/uapi/asm/</code></p>
 <blockquote>
 <p>比如在我的Linux里此文件是位于 <code>/usr/src/linux-4.10.8/arch/x86/include/generated/uapi/asm/</code> 里的<br>通过使用vim或者自带的gedit打开这个文件，因为打开这个文件需要管理员权限，所以需要在命令前加上sudo。在endif之前添加一个新的系统调用号：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#define __NR_qwq 333</div></pre></td></tr></table></figure></p>
@@ -346,19 +347,19 @@
 <blockquote>
 <p>333 64 qwq sys_qwq<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//以内核版本为例，我的版本是4.10.8所以是进入linux-4.10.8文件夹</div><div class="line">//此处的333与你之前添加的系统调用号一致，qwq是调用函数名，sys_qwq是实际的调用函数，这个名字和调用函数名没有关系哦。</div></pre></td></tr></table></figure></p>
 </blockquote>
-<h3 id="添加调用实现"><a href="#添加调用实现" class="headerlink" title="添加调用实现"></a>添加调用实现</h3><p>/* 后就是添加通过调用号要调用到的程序了 打开<code>/usr/src/linux-4.10.8/include/linux/syscalls.h</code>添加一个函数声明</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function">asmlinkage <span class="keyword">long</span> <span class="title">sys_qwq</span><span class="params">(<span class="keyword">void</span>)</span></span>;</div></pre></td></tr></table></figure>
-<p>*/</p>
-<p>然后打开<code>/usr/src/linux-4.10.8/kernel/sys.c</code>，并在结尾添加函数：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">SYSCALL_DEFINE2(qwq,<span class="keyword">long</span>,a,<span class="keyword">long</span>,b)</div><div class="line">&#123;</div><div class="line">	<span class="keyword">int</span> i,t;</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="添加调用实现"><a href="#添加调用实现" class="headerlink" title="添加调用实现"></a>添加调用实现</h3><blockquote>
+<p><strong><code>sino大佬博客里这个方法在内核版本4.0以上就不再使用了，都是使用宏定义，如果坚持使用函数声明的办法可能会出错</code></strong><br>后就是添加通过调用号要调用到的程序了 打开<code>/usr/src/linux-4.10.8/include/linux/syscalls.h</code>添加一个函数声明<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; <span class="function">asmlinkage <span class="keyword">long</span> <span class="title">sys_qwq</span><span class="params">(<span class="keyword">void</span>)</span></span>;</div><div class="line">&gt;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<p>然后打开<code>/usr/src/linux-4.10.8/kernel/sys.c</code>，并在结尾添加函数：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">SYSCALL_DEFINE2(qwq, <span class="keyword">long</span>, b, <span class="keyword">const</span> <span class="keyword">char</span> __user *, a)</div><div class="line">&#123;</div><div class="line">	printk(<span class="string">"Hi, this is %ld who wants to say %s to you!\n"</span>,b,a);</div><div class="line">	<span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <blockquote>
-<p>DEFINE后面的数字是传入的参数个数，<code>qwq</code>为入口地址，注意这里参数类型和参数名字之间均要用<code>,</code>隔开<br>通过 传入一个long型数据和一个字符串到内核空间，在内核空间打印完后返回一个1</p>
+<p>DEFINE后面的数字是传入的参数个数，<code>qwq</code>为入口地址，注意这里参数类型和参数名字之间均要用<code>,</code>隔开<br>传入1个long型数据和一个字符串到内核空间，在内核空间打印完后返回一个1</p>
 </blockquote>
 <h3 id="重新编译"><a href="#重新编译" class="headerlink" title="重新编译"></a>重新编译</h3><p>确定所有文件保存后，执行:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ sudo make -j6 bzImage   //内核数+2</div><div class="line">$ sudo make install</div></pre></td></tr></table></figure></p>
 <blockquote>
 <p>然后要重启哦！</p>
 </blockquote>
-<p><br><br><br></p>
-<h2 id="使用系统调用"><a href="#使用系统调用" class="headerlink" title="使用系统调用"></a>使用系统调用</h2><p><br><br><br></p>
+<p><br></p>
+<h2 id="使用系统调用"><a href="#使用系统调用" class="headerlink" title="使用系统调用"></a>使用系统调用</h2><p><br></p>
 <h3 id="编写一个小程序"><a href="#编写一个小程序" class="headerlink" title="编写一个小程序"></a>编写一个小程序</h3><p>新建一个文件 test.cpp 输入以下代码<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/syscall.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">long</span> ret = syscall(<span class="number">333</span>); <span class="comment">//syscall 调用号 参数1 之后为系统调用的参数列表</span></div><div class="line">    <span class="built_in">printf</span>(<span class="string">"result is %ld\n"</span>, ret);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <h3 id="编译程序"><a href="#编译程序" class="headerlink" title="编译程序"></a>编译程序</h3><p>输入命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ g++ test.cpp -o <span class="built_in">test</span></div></pre></td></tr></table></figure></p>
 <p>等待执行完之后，程序就编译成功啦</p>
@@ -369,7 +370,10 @@
 <blockquote>
 <p>grep “hello” 为过滤出包含”hello”的信息<br>此处有坑…如果是在CB里面运行的，记得把运行弹出的shell关掉啊，不然看不到输出消息的…qwq</p>
 </blockquote>
-<p>Printk()会依据日志级别将指定信息输出到控制台或日志文件中，其格式为：<br>printk(日志级别 “消息文本”)；<br>如 printk(KERN_ALERT”hello,world\n”);<br>一般情况下，优先级高于控制台日志级别的消息将被打印到控制台，优先级低于控制台日志级别的消息将被打印到 messages 日志文件中，而在伪终端下不打印任何的信息。有关其更详细的使用说明请大家自行查阅资料学习。<br>加载模块后，用户可使用 dmesg 命令查看模块初始化函数中的输出信息，如使用 “ dmesg | tail -20 ” 来输出“dmesg”命令的最后 20 行日志。</p>
+<p>Printk()会依据日志级别将指定信息输出到控制台或日志文件中，其格式为：</p>
+<blockquote>
+<p>printk(日志级别 “消息文本”)；<br>如 printk(KERN_ALERT”hello,world\n”);<br>一般情况下，优先级高于控制台日志级别的消息将被打印到控制台，优先级低于控制台日志级别的消息将被打印到messages日志文件中，而在伪终端下不打印任何的信息。<br>加载模块后，用户可使用 dmesg 命令查看模块初始化函数中的输出信息，如使用 “ dmesg | tail -20 ” 来输出“dmesg”命令的最后 20 行日志。</p>
+</blockquote>
 
       
     </div>
@@ -380,6 +384,12 @@
 
 
     <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2017/05/09/UPX壳/">
+                    啊一个超简易的UPX脱壳
+                </a>
+            </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
@@ -452,7 +462,9 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2017/05/09/UPX壳/" title="上一篇: 啊一个超简易的UPX脱壳">
+                <i class="fa fa-angle-left"></i>
+            </a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
@@ -464,7 +476,7 @@
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/04/19/向linux内核添加系统调用/">Linux自定义系统调用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/02/搭建博客/">利用hexo在windows下搭建静态博客ovo</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/02/找图片啊图标啊什么的/">找图片啊图标啊什么的</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/28/汇编语言入门/">汇编语言入门qwq</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/23/linux的fork(),waitpid()及wait()的用法/">linux的fork(),waitpid()及wait()的用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/11/HDOJ 2500 【简单题】做一个正气的杭电人/">HDOJ 2500 【简单题】做一个正气的杭电人</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/11/HDOJ 3790 【Dijkstra】最短路径问题/">HDOJ 3790 【Dijkstra】最短路径问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/11/HDOJ 2544 【Dijkstra】最短路/">HDOJ 2544 【Dijkstra】最短路</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/10/HDOJ 2066 【Dijkstra】一个人的旅行/">HDOJ 2066 【Dijkstra】一个人的旅行</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/09/HDOJ 1874 【FLoyd】【Bellman】畅通工程续/">HDOJ 1874 【FLoyd】【Bellman】【Dijkstra】畅通工程续</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/08/HDOJ 1215 【简单题】七夕节  &  HDOJ 1406 【简单题】完数/">HDOJ 1215 【简单题】七夕节  &  HDOJ 1406 【简单题】完数</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/06/HDOJ 1217 【Floyd】Arbitrage/">HDOJ 1217 【Floyd】Arbitrage</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/05/HDOJ 1869 【Floyd】六度分离/">HDOJ 1869 【Floyd】六度分离</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/04/HDOJ 1290 【递推】献给杭电五十周年校庆的礼物/">HDOJ 1290 【递推】献给杭电五十周年校庆的礼物</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/03/HDOJ 1051 【贪心】 Wooden Sticks/">HDOJ 1051 【贪心】 Wooden Sticks</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/02/HDOJ 1098 【数学题】Ignatius's puzzle/">HDOJ 1098 【数学题】Ignatius's puzzle</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/05/09/UPX壳/">啊一个超简易的UPX脱壳</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/19/向linux内核添加系统调用/">Linux自定义系统调用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/02/搭建博客/">利用hexo在windows下搭建静态博客ovo</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/02/找图片啊图标啊什么的/">找图片啊图标啊什么的</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/28/汇编语言入门/">汇编语言入门qwq</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/23/linux的fork(),waitpid()及wait()的用法/">linux的fork(),waitpid()及wait()的用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/11/HDOJ 2500 【简单题】做一个正气的杭电人/">HDOJ 2500 【简单题】做一个正气的杭电人</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/11/HDOJ 3790 【Dijkstra】最短路径问题/">HDOJ 3790 【Dijkstra】最短路径问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/11/HDOJ 2544 【Dijkstra】最短路/">HDOJ 2544 【Dijkstra】最短路</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/10/HDOJ 2066 【Dijkstra】一个人的旅行/">HDOJ 2066 【Dijkstra】一个人的旅行</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/09/HDOJ 1874 【FLoyd】【Bellman】畅通工程续/">HDOJ 1874 【FLoyd】【Bellman】【Dijkstra】畅通工程续</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/08/HDOJ 1215 【简单题】七夕节  &  HDOJ 1406 【简单题】完数/">HDOJ 1215 【简单题】七夕节  &  HDOJ 1406 【简单题】完数</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/06/HDOJ 1217 【Floyd】Arbitrage/">HDOJ 1217 【Floyd】Arbitrage</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/05/HDOJ 1869 【Floyd】六度分离/">HDOJ 1869 【Floyd】六度分离</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/04/HDOJ 1290 【递推】献给杭电五十周年校庆的礼物/">HDOJ 1290 【递推】献给杭电五十周年校庆的礼物</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/03/HDOJ 1051 【贪心】 Wooden Sticks/">HDOJ 1051 【贪心】 Wooden Sticks</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/02/HDOJ 1098 【数学题】Ignatius's puzzle/">HDOJ 1098 【数学题】Ignatius's puzzle</a></li></ul>
 
 
 

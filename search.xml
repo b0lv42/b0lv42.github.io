@@ -4,10 +4,45 @@
   
     
     <entry>
+      <title><![CDATA[啊一个超简易的UPX脱壳]]></title>
+      <url>https://b0lv42.github.io/2017/05/09/UPX%E5%A3%B3/</url>
+      <content type="html"><![CDATA[<p>加壳一类是压缩，一类是保护。<br><code>压缩</code>的目的是减少程序体积，如ASPack、UPX、PECompact等。<br><code>保护</code>是为了防止程序被跟踪和调试，如ASProtect、幻影。</p>
+<p>用LordPE查看两个文件的相关内容，我们可以看到加壳后重要的变化有：</p>
+<ul>
+<li>程序的入口点（EntryPoint）</li>
+<li>文件块数（NumberOfSections）</li>
+<li>当然，像文件对齐（FileAlignment）和映像大小（SizeOfImage）也会有改变。 </li>
+</ul>
+<p>点LordPE的Sections按钮，查看两个文件的块信息，未加壳的源文件拥有的块名称是一个正常的PE文件所有的块名称（注意，如果发布VC++程序的时候选择的是debug版本，则会有reloc节），加壳后很明显的有UPX的痕迹。UPX将重新组织区块，并且VSize（虚拟尺寸）和Roffset（相对偏移）也显得很完整。</p>
+<ul>
+<li>F2：设置断点，只要在光标定位的位置按F2键即可，再按一次F2键则会删除断点。（相当于 SoftICE 中的 F9）</li>
+<li><p>F8：单步步过。每按一次这个键执行一条反汇编窗口中的一条指令，遇到 CALL 等子程序不进入其代码。（相当于 SoftICE 中的 F10）</p>
+</li>
+<li><p>F7：单步步入。功能同单步步过(F8)类似，区别是遇到 CALL 等子程序时会进入其中，进入后首先会停留在子程序的第一条指令上。（相当于 SoftICE 中的 F8）</p>
+</li>
+</ul>
+<p>F4：运行到选定位置。作用就是直接运行到光标所在位置处暂停。（相当于 SoftICE 中的 F7）</p>
+<p>F9：运行。按下这个键如果没有设置相应断点的话，被调试的程序将直接开始运行。（相当于 SoftICE 中的 F5）</p>
+<p>CTR+F9：执行到返回。此命令在执行到一个 ret (返回指令)指令时暂停，常用于从系统领空返回到我们调试的程序领空。（相当于 SoftICE 中的 F12）</p>
+<p>ALT+F9：执行到用户代码。可用于从系统领空快速返回到我们调试的程序领空。（相当于 SoftICE 中的 F11）</p>
+<p>其实，在OllyDbg中要找出UPX加壳文件的程序真正入口地址还是很简单的，在图7中第一句是PUSHAD，这是壳在保护现场环境，那么在OllyDbg中不需要跟踪，只需向下翻屏幕，看到“POPAD,JMP<strong><em>**</em></strong>”，就是真正的入口点了。我们可以在POPAD的下一句按下F2设置断点，让程序一开始就运行到这里，则前面的所有壳的干扰就可以被我们绕过了</p>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> CTF </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Linux自定义系统调用]]></title>
       <url>https://b0lv42.github.io/2017/04/19/%E5%90%91linux%E5%86%85%E6%A0%B8%E6%B7%BB%E5%8A%A0%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8/</url>
-      <content type="html"><![CDATA[<p>原文来自：<a href="https://tecotaku.cn/blog/?p=256" target="_blank" rel="external">Sino大佬的博客</a><br><br><br><br></p>
-<h2 id="添加系统调用"><a href="#添加系统调用" class="headerlink" title="添加系统调用"></a>添加系统调用</h2><p><br><br><br></p>
+      <content type="html"><![CDATA[<p>原文来自：<a href="https://tecotaku.cn/blog/?p=256" target="_blank" rel="external">Sino大佬的博客</a></p>
+<p><br></p>
+<h2 id="添加系统调用"><a href="#添加系统调用" class="headerlink" title="添加系统调用"></a>添加系统调用</h2><p><br></p>
 <h3 id="添加系统调用的头文件索引"><a href="#添加系统调用的头文件索引" class="headerlink" title="添加系统调用的头文件索引"></a>添加系统调用的头文件索引</h3><p>我们要调用syscall是通过unistd提供的一系列系统接口，其中由C提供的接口需要通过修改<code>unistd_64.h</code>这个文件来指定。<br>打开是存放内核源码的地方，进入子目录<code>arch/x86/include/generated/uapi/asm/</code></p>
 <blockquote>
 <p>比如在我的Linux里此文件是位于 <code>/usr/src/linux-4.10.8/arch/x86/include/generated/uapi/asm/</code> 里的<br>通过使用vim或者自带的gedit打开这个文件，因为打开这个文件需要管理员权限，所以需要在命令前加上sudo。在endif之前添加一个新的系统调用号：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#define __NR_qwq 333</div></pre></td></tr></table></figure></p>
@@ -17,19 +52,19 @@
 <blockquote>
 <p>333 64 qwq sys_qwq<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//以内核版本为例，我的版本是4.10.8所以是进入linux-4.10.8文件夹</div><div class="line">//此处的333与你之前添加的系统调用号一致，qwq是调用函数名，sys_qwq是实际的调用函数，这个名字和调用函数名没有关系哦。</div></pre></td></tr></table></figure></p>
 </blockquote>
-<h3 id="添加调用实现"><a href="#添加调用实现" class="headerlink" title="添加调用实现"></a>添加调用实现</h3><p>/* 后就是添加通过调用号要调用到的程序了 打开<code>/usr/src/linux-4.10.8/include/linux/syscalls.h</code>添加一个函数声明</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function">asmlinkage <span class="keyword">long</span> <span class="title">sys_qwq</span><span class="params">(<span class="keyword">void</span>)</span></span>;</div></pre></td></tr></table></figure>
-<p>*/</p>
-<p>然后打开<code>/usr/src/linux-4.10.8/kernel/sys.c</code>，并在结尾添加函数：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">SYSCALL_DEFINE2(qwq,<span class="keyword">long</span>,a,<span class="keyword">long</span>,b)</div><div class="line">&#123;</div><div class="line">	<span class="keyword">int</span> i,t;</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="添加调用实现"><a href="#添加调用实现" class="headerlink" title="添加调用实现"></a>添加调用实现</h3><blockquote>
+<p><strong><code>sino大佬博客里这个方法在内核版本4.0以上就不再使用了，都是使用宏定义，如果坚持使用函数声明的办法可能会出错</code></strong><br>后就是添加通过调用号要调用到的程序了 打开<code>/usr/src/linux-4.10.8/include/linux/syscalls.h</code>添加一个函数声明<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; <span class="function">asmlinkage <span class="keyword">long</span> <span class="title">sys_qwq</span><span class="params">(<span class="keyword">void</span>)</span></span>;</div><div class="line">&gt;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<p>然后打开<code>/usr/src/linux-4.10.8/kernel/sys.c</code>，并在结尾添加函数：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">SYSCALL_DEFINE2(qwq, <span class="keyword">long</span>, b, <span class="keyword">const</span> <span class="keyword">char</span> __user *, a)</div><div class="line">&#123;</div><div class="line">	printk(<span class="string">"Hi, this is %ld who wants to say %s to you!\n"</span>,b,a);</div><div class="line">	<span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <blockquote>
-<p>DEFINE后面的数字是传入的参数个数，<code>qwq</code>为入口地址，注意这里参数类型和参数名字之间均要用<code>,</code>隔开<br>通过 传入一个long型数据和一个字符串到内核空间，在内核空间打印完后返回一个1</p>
+<p>DEFINE后面的数字是传入的参数个数，<code>qwq</code>为入口地址，注意这里参数类型和参数名字之间均要用<code>,</code>隔开<br>传入1个long型数据和一个字符串到内核空间，在内核空间打印完后返回一个1</p>
 </blockquote>
 <h3 id="重新编译"><a href="#重新编译" class="headerlink" title="重新编译"></a>重新编译</h3><p>确定所有文件保存后，执行:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ sudo make -j6 bzImage   //内核数+2</div><div class="line">$ sudo make install</div></pre></td></tr></table></figure></p>
 <blockquote>
 <p>然后要重启哦！</p>
 </blockquote>
-<p><br><br><br></p>
-<h2 id="使用系统调用"><a href="#使用系统调用" class="headerlink" title="使用系统调用"></a>使用系统调用</h2><p><br><br><br></p>
+<p><br></p>
+<h2 id="使用系统调用"><a href="#使用系统调用" class="headerlink" title="使用系统调用"></a>使用系统调用</h2><p><br></p>
 <h3 id="编写一个小程序"><a href="#编写一个小程序" class="headerlink" title="编写一个小程序"></a>编写一个小程序</h3><p>新建一个文件 test.cpp 输入以下代码<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/syscall.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">long</span> ret = syscall(<span class="number">333</span>); <span class="comment">//syscall 调用号 参数1 之后为系统调用的参数列表</span></div><div class="line">    <span class="built_in">printf</span>(<span class="string">"result is %ld\n"</span>, ret);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <h3 id="编译程序"><a href="#编译程序" class="headerlink" title="编译程序"></a>编译程序</h3><p>输入命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ g++ test.cpp -o <span class="built_in">test</span></div></pre></td></tr></table></figure></p>
 <p>等待执行完之后，程序就编译成功啦</p>
@@ -40,7 +75,10 @@
 <blockquote>
 <p>grep “hello” 为过滤出包含”hello”的信息<br>此处有坑…如果是在CB里面运行的，记得把运行弹出的shell关掉啊，不然看不到输出消息的…qwq</p>
 </blockquote>
-<p>Printk()会依据日志级别将指定信息输出到控制台或日志文件中，其格式为：<br>printk(日志级别 “消息文本”)；<br>如 printk(KERN_ALERT”hello,world\n”);<br>一般情况下，优先级高于控制台日志级别的消息将被打印到控制台，优先级低于控制台日志级别的消息将被打印到 messages 日志文件中，而在伪终端下不打印任何的信息。有关其更详细的使用说明请大家自行查阅资料学习。<br>加载模块后，用户可使用 dmesg 命令查看模块初始化函数中的输出信息，如使用 “ dmesg | tail -20 ” 来输出“dmesg”命令的最后 20 行日志。</p>
+<p>Printk()会依据日志级别将指定信息输出到控制台或日志文件中，其格式为：</p>
+<blockquote>
+<p>printk(日志级别 “消息文本”)；<br>如 printk(KERN_ALERT”hello,world\n”);<br>一般情况下，优先级高于控制台日志级别的消息将被打印到控制台，优先级低于控制台日志级别的消息将被打印到messages日志文件中，而在伪终端下不打印任何的信息。<br>加载模块后，用户可使用 dmesg 命令查看模块初始化函数中的输出信息，如使用 “ dmesg | tail -20 ” 来输出“dmesg”命令的最后 20 行日志。</p>
+</blockquote>
 ]]></content>
       
         
