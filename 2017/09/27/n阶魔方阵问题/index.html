@@ -15,12 +15,16 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="b0lv42'blog - 不断探索!">
-<meta property="og:url" content="https://b0lv42.github.io/archives/index.html">
+<meta name="description" content="C++课作业，此处用动态存储分配。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="n阶奇数魔方阵问题">
+<meta property="og:url" content="https://b0lv42.github.io/2017/09/27/n阶魔方阵问题/index.html">
 <meta property="og:site_name" content="b0lv42'blog - 不断探索!">
+<meta property="og:description" content="C++课作业，此处用动态存储分配。">
+<meta property="og:updated_time" content="2017-09-27T03:30:58.784Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="b0lv42'blog - 不断探索!">
+<meta name="twitter:title" content="n阶奇数魔方阵问题">
+<meta name="twitter:description" content="C++课作业，此处用动态存储分配。">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -50,7 +54,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Archives | b0lv42&#39;blog - 不断探索!</title>
+<title>n阶奇数魔方阵问题 | b0lv42&#39;blog - 不断探索!</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -60,8 +64,8 @@
         fancybox: true,
         animate: true,
         isHome: false,
-        isPost: false,
-        isArchive: true,
+        isPost: true,
+        isArchive: false,
         isTag: false,
         isCategory: false,
         fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
@@ -291,357 +295,150 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-n阶魔方阵问题" class="article article-type-post" itemscope itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2017/09/27/n阶魔方阵问题/" class="archive-article-date">
-      <time datetime="2017-09-27T03:24:21.000Z" itemprop="datePublished">09-27</time>
+    <div class="article-meta">
+      <a href="/2017/09/27/n阶魔方阵问题/" class="article-date">
+      <time datetime="2017-09-27T03:24:21.000Z" itemprop="datePublished">2017-09-27</time>
 </a>
 
 
-        </div>
-         
+    </div>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/27/n阶魔方阵问题/">n阶奇数魔方阵问题</a>
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      n阶奇数魔方阵问题
     </h1>
   
 
-        <div class="article-info info-on-archive">
-          
+      </header>
+      
+      <div class="article-info article-info-post">
+        
 
-          
+        
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/零零碎碎的知识！/">零零碎碎的知识！</a></li></ul>
     </div>
 
-        </div>
         <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
+      </div>
+      
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2017/05/09/UPX壳/" class="archive-article-date">
-      <time datetime="2017-05-09T10:06:29.189Z" itemprop="datePublished">05-09</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/09/UPX壳/">啊一个超简易的UPX脱壳</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
+    <div class="article-entry" itemprop="articleBody">
+      
           
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CTF/">CTF</a></li></ul>
+        <p>#n阶奇数魔方阵基本描述：<br><a href="http://www.docin.com/p-1341105731.html" target="_blank" rel="external">分析的文章的链接</a></p>
+<p>贴实现代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"stdafx.h"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">DisplayMatrix</span><span class="params">(<span class="keyword">int</span> *A, <span class="keyword">int</span> n)</span></span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">int</span> *A;</div><div class="line">	<span class="keyword">int</span> n;</div><div class="line">	<span class="built_in">cin</span> &gt;&gt; n;</div><div class="line">	A = <span class="keyword">new</span> <span class="keyword">int</span>[n*n];</div><div class="line">	<span class="built_in">memset</span>(A, <span class="number">0</span>, n*n * <span class="keyword">sizeof</span>(<span class="keyword">int</span>));</div><div class="line"></div><div class="line">	<span class="keyword">int</span> row, col;</div><div class="line">	row = <span class="number">0</span>; col = (n - <span class="number">1</span>) / <span class="number">2</span>;</div><div class="line">	A[row*n + col] = <span class="number">1</span>;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">2</span>; k &lt;= n*n; k++) </div><div class="line">	&#123;</div><div class="line">		row--;</div><div class="line">		col++;</div><div class="line">		<span class="keyword">if</span> (row &lt; <span class="number">0</span>) row += n;</div><div class="line">		<span class="keyword">if</span> (col &gt;= n) col -= n;</div><div class="line">		<span class="keyword">while</span> (A[row*n + col] != <span class="number">0</span>)</div><div class="line">		&#123;</div><div class="line">			row += <span class="number">2</span>; col--;</div><div class="line">			<span class="keyword">if</span> (row &gt;= n) row -= n;</div><div class="line">			<span class="keyword">if</span> (col &lt; <span class="number">0</span>) col += n;</div><div class="line">		&#125;</div><div class="line">		A[row*n + col] = k;</div><div class="line">	&#125;</div><div class="line">	DisplayMatrix(A, n);</div><div class="line">	<span class="keyword">int</span> c;</div><div class="line">	<span class="built_in">cin</span> &gt;&gt; c;</div><div class="line">	<span class="keyword">delete</span>[] A;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span>    <span class="title">DisplayMatrix</span><span class="params">(<span class="keyword">int</span> *A, <span class="keyword">int</span> n)</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> row = <span class="number">0</span>; row &lt; n; ++row) &#123;</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> col = <span class="number">0</span>; col &lt; n; ++col) &#123;</div><div class="line">			<span class="built_in">cout</span>.width(<span class="number">5</span>);</div><div class="line">			<span class="built_in">cout</span> &lt;&lt; A[row*n + col];</div><div class="line">		&#125;</div><div class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+      
     </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+    
   </div>
-</article>
   
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2017/04/19/向linux内核添加系统调用/" class="archive-article-date">
-      <time datetime="2017-04-19T11:42:12.709Z" itemprop="datePublished">04-19</time>
-</a>
 
 
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/19/向linux内核添加系统调用/">Linux自定义系统调用</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大作业/">大作业</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2017/04/02/搭建博客/" class="archive-article-date">
-      <time datetime="2017-04-02T11:55:01.169Z" itemprop="datePublished">04-02</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/02/搭建博客/">利用hexo在windows下搭建静态博客ovo</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/教程/">教程</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2017/04/02/找图片啊图标啊什么的/" class="archive-article-date">
-      <time datetime="2017-04-02T11:14:24.894Z" itemprop="datePublished">04-02</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/02/找图片啊图标啊什么的/">找图片啊图标啊什么的</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/收集的乱七八糟的东西！/">收集的乱七八糟的东西！</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2017/03/28/汇编语言入门/" class="archive-article-date">
-      <time datetime="2017-03-28T14:27:11.000Z" itemprop="datePublished">03-28</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/28/汇编语言入门/">汇编语言入门qwq</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/资料/">资料</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2017/03/23/linux的fork(),waitpid()及wait()的用法/" class="archive-article-date">
-      <time datetime="2017-03-23T13:10:11.000Z" itemprop="datePublished">03-23</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/23/linux的fork(),waitpid()及wait()的用法/">linux的fork(),waitpid()及wait()的用法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/零零碎碎的知识！/">零零碎碎的知识！</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2017/03/11/HDOJ 2500 【简单题】做一个正气的杭电人/" class="archive-article-date">
-      <time datetime="2017-03-11T13:04:11.000Z" itemprop="datePublished">03-11</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/11/HDOJ 2500 【简单题】做一个正气的杭电人/">HDOJ 2500 【简单题】做一个正气的杭电人</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ACM题解/">ACM题解</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2017/03/11/HDOJ 3790 【Dijkstra】最短路径问题/" class="archive-article-date">
-      <time datetime="2017-03-11T13:03:10.000Z" itemprop="datePublished">03-11</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/11/HDOJ 3790 【Dijkstra】最短路径问题/">HDOJ 3790 【Dijkstra】最短路径问题</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ACM题解/">ACM题解</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2017/03/11/HDOJ 2544 【Dijkstra】最短路/" class="archive-article-date">
-      <time datetime="2017-03-11T11:51:11.000Z" itemprop="datePublished">03-11</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/11/HDOJ 2544 【Dijkstra】最短路/">HDOJ 2544 【Dijkstra】最短路</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ACM题解/">ACM题解</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/">Next &raquo;</a>
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2017/05/09/UPX壳/">
+                    啊一个超简易的UPX脱壳
+                </a>
+            </div>
+        
     </nav>
-  
 
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"n阶奇数魔方阵问题　| b0lv42'blog - 不断探索!　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2017/05/09/UPX壳/" title="下一篇: 啊一个超简易的UPX脱壳">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/09/27/n阶魔方阵问题/">n阶奇数魔方阵问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/09/UPX壳/">啊一个超简易的UPX脱壳</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/19/向linux内核添加系统调用/">Linux自定义系统调用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/02/搭建博客/">利用hexo在windows下搭建静态博客ovo</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/02/找图片啊图标啊什么的/">找图片啊图标啊什么的</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/28/汇编语言入门/">汇编语言入门qwq</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/23/linux的fork(),waitpid()及wait()的用法/">linux的fork(),waitpid()及wait()的用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/11/HDOJ 2500 【简单题】做一个正气的杭电人/">HDOJ 2500 【简单题】做一个正气的杭电人</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/11/HDOJ 3790 【Dijkstra】最短路径问题/">HDOJ 3790 【Dijkstra】最短路径问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/11/HDOJ 2544 【Dijkstra】最短路/">HDOJ 2544 【Dijkstra】最短路</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/10/HDOJ 2066 【Dijkstra】一个人的旅行/">HDOJ 2066 【Dijkstra】一个人的旅行</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/09/HDOJ 1874 【FLoyd】【Bellman】畅通工程续/">HDOJ 1874 【FLoyd】【Bellman】【Dijkstra】畅通工程续</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/08/HDOJ 1215 【简单题】七夕节  &  HDOJ 1406 【简单题】完数/">HDOJ 1215 【简单题】七夕节  &  HDOJ 1406 【简单题】完数</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/06/HDOJ 1217 【Floyd】Arbitrage/">HDOJ 1217 【Floyd】Arbitrage</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/05/HDOJ 1869 【Floyd】六度分离/">HDOJ 1869 【Floyd】六度分离</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/04/HDOJ 1290 【递推】献给杭电五十周年校庆的礼物/">HDOJ 1290 【递推】献给杭电五十周年校庆的礼物</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/03/HDOJ 1051 【贪心】 Wooden Sticks/">HDOJ 1051 【贪心】 Wooden Sticks</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/02/HDOJ 1098 【数学题】Ignatius's puzzle/">HDOJ 1098 【数学题】Ignatius's puzzle</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
 </div>
       <footer id="footer">
     <div class="outer">
