@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="超级水！">
+<meta name="description" content="用C语言的链表写法来实现的">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HDOJ 2500 【简单题】做一个正气的杭电人">
-<meta property="og:url" content="https://b0lv42.github.io/2017/03/11/HDOJ 2500 【简单题】做一个正气的杭电人/index.html">
+<meta property="og:title" content="约瑟夫环-">
+<meta property="og:url" content="https://b0lv42.github.io/2017/10/16/约瑟夫环【链表语言写法】/index.html">
 <meta property="og:site_name" content="b0lv42'blog - 不断探索!">
-<meta property="og:description" content="超级水！">
-<meta property="og:updated_time" content="2017-04-02T09:44:22.519Z">
+<meta property="og:description" content="用C语言的链表写法来实现的">
+<meta property="og:updated_time" content="2017-10-16T12:44:23.561Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HDOJ 2500 【简单题】做一个正气的杭电人">
-<meta name="twitter:description" content="超级水！">
+<meta name="twitter:title" content="约瑟夫环-">
+<meta name="twitter:description" content="用C语言的链表写法来实现的">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -54,7 +54,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>HDOJ 2500 【简单题】做一个正气的杭电人 | b0lv42&#39;blog - 不断探索!</title>
+<title>约瑟夫环- | b0lv42&#39;blog - 不断探索!</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -295,11 +295,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-HDOJ 2500 【简单题】做一个正气的杭电人" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-约瑟夫环【链表语言写法】" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/03/11/HDOJ 2500 【简单题】做一个正气的杭电人/" class="article-date">
-      <time datetime="2017-03-11T13:04:11.000Z" itemprop="datePublished">2017-03-11</time>
+      <a href="/2017/10/16/约瑟夫环【链表语言写法】/" class="article-date">
+      <time datetime="2017-10-16T12:27:13.000Z" itemprop="datePublished">2017-10-16</time>
 </a>
 
 
@@ -314,7 +314,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      HDOJ 2500 【简单题】做一个正气的杭电人
+      约瑟夫环-
     </h1>
   
 
@@ -325,7 +325,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ACM题解/">ACM题解</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/零零碎碎的知识！/">零零碎碎的知识！</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -335,9 +335,19 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>###【题目描述】<br><a href="http://acm.hdu.edu.cn/showproblem.php?pid=2500" target="_blank" rel="external">http://acm.hdu.edu.cn/showproblem.php?pid=2500</a></p>
-<p>###【思路】<br>超简单 就不写辣！</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">      <span class="keyword">int</span> T,n;</div><div class="line"></div><div class="line">      <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;T);</div><div class="line"></div><div class="line">      <span class="keyword">while</span> (T--)</div><div class="line">      &#123;</div><div class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</div><div class="line"></div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n*<span class="number">3</span>;i++)</div><div class="line">            &#123;</div><div class="line">                  <span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=n;j++) <span class="built_in">printf</span>(<span class="string">"HDU"</span>);</div><div class="line">                  <span class="built_in">printf</span>(<span class="string">"\n"</span>);</div><div class="line">            &#125;</div><div class="line">      &#125;</div><div class="line"></div><div class="line">      <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <h2 id="约瑟夫环（约瑟夫问题）："><a href="#约瑟夫环（约瑟夫问题）：" class="headerlink" title="约瑟夫环（约瑟夫问题）："></a>约瑟夫环（约瑟夫问题）：</h2><p>已知n个人（以编号1，2，3…n分别表示）围坐在一张圆桌周围。从编号为k的人开始报数，数到m的那个人出列；他的下一个人又从1开始报数，数到m的那个人又出列；依此规律重复下去，直到圆桌周围的人全部出列。<br>输出出列的顺序。</p>
+<h2 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h2><p>其实这个问题可以用01数组+while循环取模来实现，代码实现非常简单。<br>然而老师要求要用链表来写，啊~我以前只写过前向星，<a href="http://blog.csdn.net/acdreamers/article/details/16902023" target="_blank" rel="external">这里贴出前向星的解析</a>，所以遇到这样的指针啊什么内存啊什么的东西就非常让人摸不到头脑，于是一边百度一边写。<br>这里我设置了一个head和一个tail代表队列的首尾。</p>
+<ol>
+<li><p>malloc()这个函数的返回值是void，所以为了避免出错，要强制类型转换一下，比如我这个指针的类型是<code>struct Node</code>，所以在这里：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">p = (struct Node *)malloc(sizeof(struct Node));</div></pre></td></tr></table></figure>
+</li>
+<li><p>指针分配内存后就不用让它=NULL了。C++也是~</p>
+</li>
+<li>至于VS怎么建立C工程文件，右侧解决方案资源管理器中右键cpp文件重命名为c后缀就好啦。</li>
+<li>VS对c编译很严格，现在define都不管用了，也只有用#pragma warning(disable:4996)来忽略警告了。</li>
+<li>VS中编译c文件使用预编译头会报错，调试 –&gt; 属性 –&gt; C/C++ –&gt; 预编译头 –&gt; 不使用预编译头。</li>
+</ol>
+<p>贴上代码：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">pragma</span> <span class="meta-keyword">warning</span>(disable:4996)</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"stdafx.h"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;malloc.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> Size 1000</span></div><div class="line"></div><div class="line"><span class="keyword">struct</span> Node</div><div class="line">&#123;</div><div class="line">	<span class="keyword">int</span> data;</div><div class="line">	<span class="keyword">struct</span> Node *next;</div><div class="line">&#125;;</div><div class="line"><span class="keyword">struct</span> Node *head;</div><div class="line"><span class="keyword">struct</span> Node *tail;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">jose</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> m, <span class="keyword">int</span> k)</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">int</span> i;</div><div class="line">	<span class="keyword">struct</span> Node *p;</div><div class="line">	p = (<span class="keyword">struct</span> Node *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">struct</span> Node));</div><div class="line">	p-&gt;data = <span class="number">1</span>;</div><div class="line">	head = tail = p;</div><div class="line"></div><div class="line">	<span class="keyword">for</span> (i = <span class="number">2</span>; i &lt;= n; i++)</div><div class="line">	&#123;</div><div class="line">		p = (<span class="keyword">struct</span> Node *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">struct</span> Node));</div><div class="line">		p-&gt;data = i;</div><div class="line">		tail-&gt;next = p;</div><div class="line">		tail = p;</div><div class="line">	&#125;</div><div class="line">	tail-&gt;next = head;</div><div class="line"></div><div class="line">	<span class="keyword">struct</span> Node *node;</div><div class="line">	p = head;</div><div class="line">	<span class="keyword">while</span> (p-&gt;data != k) p = p-&gt;next;</div><div class="line"></div><div class="line">	<span class="keyword">while</span> (p-&gt;next != p)     <span class="comment">//当仅剩一个节点时</span></div><div class="line">	&#123;</div><div class="line">		<span class="keyword">for</span> (i = <span class="number">2</span>; i &lt; m; i++) p = p-&gt;next;</div><div class="line">		node = p-&gt;next;</div><div class="line">		<span class="built_in">printf</span>(<span class="string">"%d "</span>, node-&gt;data);</div><div class="line">		p-&gt;next = node-&gt;next;</div><div class="line">		<span class="built_in">free</span>(node);</div><div class="line">		p = p-&gt;next;</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"%d "</span>, p-&gt;data);</div><div class="line">	<span class="built_in">free</span>(p);</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"\n"</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">int</span> n, m, k;</div><div class="line">	<span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>, &amp;n, &amp;m, &amp;k) != EOF) jose(n, m, k);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -349,16 +359,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2017/03/23/linux的fork(),waitpid()及wait()的用法/">
-                    linux的fork(),waitpid()及wait()的用法
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2017/03/11/HDOJ 3790 【Dijkstra】最短路径问题/">
-                    HDOJ 3790 【Dijkstra】最短路径问题
+                <a href="/2017/09/27/n阶魔方阵问题/">
+                    n阶奇数魔方阵问题
                 </a>
             </div>
         
@@ -370,7 +374,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#约瑟夫环（约瑟夫问题）："><span class="toc-number">1.</span> <span class="toc-text">约瑟夫环（约瑟夫问题）：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#思考"><span class="toc-number">2.</span> <span class="toc-text">思考</span></a></li></ol>
         
     </div>
     <style>
@@ -406,7 +410,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"HDOJ 2500 【简单题】做一个正气的杭电人　| b0lv42'blog - 不断探索!　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"约瑟夫环-　| b0lv42'blog - 不断探索!　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -426,15 +430,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/03/23/linux的fork(),waitpid()及wait()的用法/" title="上一篇: linux的fork(),waitpid()及wait()的用法">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2017/03/11/HDOJ 3790 【Dijkstra】最短路径问题/" title="下一篇: HDOJ 3790 【Dijkstra】最短路径问题">
+            <a href="/2017/09/27/n阶魔方阵问题/" title="下一篇: n阶奇数魔方阵问题">
                 <i class="fa fa-angle-right"></i>
             </a>
         
