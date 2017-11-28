@@ -15,16 +15,12 @@
 
 
 
-<meta name="description" content="这是一个简单的最短路问题！">
-<meta property="og:type" content="article">
-<meta property="og:title" content="HDOJ 1869 【Floyd】六度分离">
-<meta property="og:url" content="https://b0lv42.github.io/2017/03/05/HDOJ 1869 【Floyd】六度分离/index.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="b0lv42'blog - 不断探索!">
+<meta property="og:url" content="https://b0lv42.github.io/archives/2017/11/index.html">
 <meta property="og:site_name" content="b0lv42'blog - 不断探索!">
-<meta property="og:description" content="这是一个简单的最短路问题！">
-<meta property="og:updated_time" content="2017-04-02T09:34:35.339Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HDOJ 1869 【Floyd】六度分离">
-<meta name="twitter:description" content="这是一个简单的最短路问题！">
+<meta name="twitter:title" content="b0lv42'blog - 不断探索!">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -54,7 +50,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>HDOJ 1869 【Floyd】六度分离 | b0lv42&#39;blog - 不断探索!</title>
+<title>Archives: 2017/11 | b0lv42&#39;blog - 不断探索!</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -64,8 +60,8 @@
         fancybox: true,
         animate: true,
         isHome: false,
-        isPost: true,
-        isArchive: false,
+        isPost: false,
+        isArchive: true,
         isTag: false,
         isCategory: false,
         fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
@@ -295,160 +291,56 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-HDOJ 1869 【Floyd】六度分离" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap">
   
-    <div class="article-meta">
-      <a href="/2017/03/05/HDOJ 1869 【Floyd】六度分离/" class="article-date">
-      <time datetime="2017-03-05T05:32:22.000Z" itemprop="datePublished">2017-03-05</time>
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+          <div class="article-meta">
+              <a href="/2017/11/28/HDOJ 3790【最短路问题】/" class="archive-article-date">
+      <time datetime="2017-11-28T15:21:21.847Z" itemprop="datePublished">11-28</time>
 </a>
 
 
-    </div>
+        </div>
+         
   
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      HDOJ 1869 【Floyd】六度分离
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/11/28/HDOJ 3790【最短路问题】/">HDOJ 3790 【SPFA】</a>
     </h1>
   
 
-      </header>
-      
-      <div class="article-info article-info-post">
-        
+        <div class="article-info info-on-archive">
+          
 
-        
+          
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ACM题解/">ACM题解</a></li></ul>
     </div>
 
-        <div class="clearfix"></div>
-      </div>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h3 id="【题目描述】"><a href="#【题目描述】" class="headerlink" title="【题目描述】"></a>【题目描述】</h3><p><a href="http://acm.hdu.edu.cn/showproblem.php?pid=1869" target="_blank" rel="external">http://acm.hdu.edu.cn/showproblem.php?pid=1869</a><br><br><br><br></p>
-<p>###【思路】<br>因为是任意起点和任意的中点而且数据也很小，所以用floyd比较合适。</p>
-<p>PS1：题目有坑，编号是从0到n-1的，我习惯用1到n编号<br>PS2：在<code>dis[i][j]=min(dis[i][j],dis[i][k]+dis[k][j])</code>松弛操作这里如果给dis数组赋的初值太大，会炸，比如我之前赋的21亿，操作时21亿+21亿，就炸了，WA了一发。<br><br></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">int</span> dis[<span class="number">300</span>][<span class="number">300</span>];</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">      <span class="keyword">int</span> n,m,a,b,check;</div><div class="line"></div><div class="line">      <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n,&amp;m)!=EOF)</div><div class="line">      &#123;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">250</span>;i++)</div><div class="line">                  <span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;<span class="number">250</span>;j++)</div><div class="line">                        <span class="keyword">if</span> (i==j) dis[i][j]==<span class="number">0</span>;</div><div class="line">                        <span class="keyword">else</span> dis[i][j]=<span class="number">210000000</span>;</div><div class="line"></div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;i++)</div><div class="line">            &#123;</div><div class="line">                  <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;a,&amp;b);</div><div class="line">                  dis[a+<span class="number">1</span>][b+<span class="number">1</span>]=dis[b+<span class="number">1</span>][a+<span class="number">1</span>]=<span class="number">1</span>;</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> k=<span class="number">1</span>;k&lt;=n;k++)</div><div class="line">                  <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</div><div class="line">                        <span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=n;j++)</div><div class="line">                              dis[i][j]=min(dis[i][j],dis[i][k]+dis[k][j]);              <span class="comment">//floyd</span></div><div class="line"></div><div class="line">            check=<span class="number">0</span>;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</div><div class="line">            &#123;</div><div class="line">                  <span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=n;j++)</div><div class="line">                        <span class="keyword">if</span> (dis[i][j]&gt;<span class="number">7</span>)</div><div class="line">                        &#123;</div><div class="line">                              check=<span class="number">1</span>;</div><div class="line">                              <span class="keyword">break</span>;</div><div class="line">                        &#125;</div><div class="line">                  <span class="keyword">if</span> (check==<span class="number">1</span>) <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="keyword">if</span> (check==<span class="number">1</span>) <span class="built_in">printf</span> (<span class="string">"No\n"</span>);</div><div class="line">            <span class="keyword">else</span> <span class="built_in">printf</span> (<span class="string">"Yes\n"</span>);</div><div class="line">      &#125;</div><div class="line"></div><div class="line">      <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-  </div>
-  
-    
-
-
-    <nav id="article-nav">
-        
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2017/03/06/HDOJ 1217 【Floyd】Arbitrage/">
-                    HDOJ 1217 【Floyd】Arbitrage
-                </a>
-            </div>
-        
-        
-            <div id="article-nav-older" class="article-nav-title">
-                <a href="/2017/03/04/HDOJ 1290 【递推】献给杭电五十周年校庆的礼物/">
-                    HDOJ 1290 【递推】献给杭电五十周年校庆的礼物
-                </a>
-            </div>
-        
-    </nav>
-
-  
-</article>
-
-    <div id="toc" class="toc-article">
-        <strong class="toc-title">文章目录</strong>
-        
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#【题目描述】"><span class="toc-number">1.</span> <span class="toc-text">【题目描述】</span></a></li></ol>
-        
-    </div>
-    <style>
-        .left-col .switch-btn,
-        .left-col .switch-area {
-            display: none;
-        }
-        .toc-level-3 i,
-        .toc-level-3 ol {
-            display: none !important;
-        }
-    </style>
-
-    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
-
-    <script>
-        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
-    </script>
-
-
-
-    
-<div class="share">
-    
-        <div class="bdsharebuttonbox">
-            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
-            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
-            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
-            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
-            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
-            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
-            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
         </div>
-        <script>
-            window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"HDOJ 1869 【Floyd】六度分离　| b0lv42'blog - 不断探索!　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
-        </script>
-    
-
-    
-</div>
-
-
-
-
-
-
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+  
+    </div></section>
+  
 
     
 
-
-
-
-    <div class="scroll" id="post-nav-button">
-        
-            <a href="/2017/03/06/HDOJ 1217 【Floyd】Arbitrage/" title="上一篇: HDOJ 1217 【Floyd】Arbitrage">
-                <i class="fa fa-angle-left"></i>
-            </a>
-        
-
-        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
-
-        
-            <a href="/2017/03/04/HDOJ 1290 【递推】献给杭电五十周年校庆的礼物/" title="下一篇: HDOJ 1290 【递推】献给杭电五十周年校庆的礼物">
-                <i class="fa fa-angle-right"></i>
-            </a>
-        
-    </div>
-
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/11/28/HDOJ 3790【最短路问题】/">HDOJ 3790 【SPFA】</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/17/老鼠走迷宫问题_C语言栈链写法/">老鼠走迷宫问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/16/约瑟夫环【链表C语言写法】/">约瑟夫环</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/27/n阶魔方阵问题/">n阶奇数魔方阵问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/09/UPX壳/">啊一个超简易的UPX脱壳</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/19/向linux内核添加系统调用/">Linux自定义系统调用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/02/搭建博客/">利用hexo在windows下搭建静态博客ovo</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/02/找图片啊图标啊什么的/">找图片啊图标啊什么的</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/28/汇编语言入门/">汇编语言入门qwq</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/23/linux的fork(),waitpid()及wait()的用法/">linux的fork(),waitpid()及wait()的用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/11/HDOJ 2500 【简单题】做一个正气的杭电人/">HDOJ 2500 【简单题】做一个正气的杭电人</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/11/HDOJ 3790 【Dijkstra】最短路径问题/">HDOJ 3790 【Dijkstra】最短路径问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/11/HDOJ 2544 【Dijkstra】最短路/">HDOJ 2544 【Dijkstra】最短路</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/10/HDOJ 2066 【Dijkstra】一个人的旅行/">HDOJ 2066 【Dijkstra】一个人的旅行</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/09/HDOJ 1874 【FLoyd】【Bellman】畅通工程续/">HDOJ 1874 【FLoyd】【Bellman】【Dijkstra】畅通工程续</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/08/HDOJ 1215 【简单题】七夕节  &  HDOJ 1406 【简单题】完数/">HDOJ 1215 【简单题】七夕节  &  HDOJ 1406 【简单题】完数</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/06/HDOJ 1217 【Floyd】Arbitrage/">HDOJ 1217 【Floyd】Arbitrage</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/05/HDOJ 1869 【Floyd】六度分离/">HDOJ 1869 【Floyd】六度分离</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/04/HDOJ 1290 【递推】献给杭电五十周年校庆的礼物/">HDOJ 1290 【递推】献给杭电五十周年校庆的礼物</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/03/HDOJ 1051 【贪心】 Wooden Sticks/">HDOJ 1051 【贪心】 Wooden Sticks</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/02/HDOJ 1098 【数学题】Ignatius's puzzle/">HDOJ 1098 【数学题】Ignatius's puzzle</a></li></ul>
-
-
-
-
-    <script>
-        
-    </script>
 </div>
       <footer id="footer">
     <div class="outer">
