@@ -80,40 +80,6 @@
     </entry>
     
     <entry>
-      <title><![CDATA[啊一个超简易的UPX脱壳]]></title>
-      <url>https://b0lv42.github.io/2017/05/09/UPX%E5%A3%B3/</url>
-      <content type="html"><![CDATA[<p>加壳一类是压缩，一类是保护。<br><code>压缩</code>的目的是减少程序体积，如ASPack、UPX、PECompact等。<br><code>保护</code>是为了防止程序被跟踪和调试，如ASProtect、幻影。</p>
-<p>用LordPE查看两个文件的相关内容，我们可以看到加壳后重要的变化有：</p>
-<ul>
-<li>程序的入口点（EntryPoint）</li>
-<li>文件块数（NumberOfSections）</li>
-<li>当然，像文件对齐（FileAlignment）和映像大小（SizeOfImage）也会有改变。 </li>
-</ul>
-<p>点LordPE的Sections按钮，查看两个文件的块信息，未加壳的源文件拥有的块名称是一个正常的PE文件所有的块名称（注意，如果发布VC++程序的时候选择的是debug版本，则会有reloc节），加壳后很明显的有UPX的痕迹。UPX将重新组织区块，并且VSize（虚拟尺寸）和Roffset（相对偏移）也显得很完整。</p>
-<ul>
-<li>F2：设置断点，只要在光标定位的位置按F2键即可，再按一次F2键则会删除断点。（相当于 SoftICE 中的 F9）</li>
-<li><p>F8：单步步过。每按一次这个键执行一条反汇编窗口中的一条指令，遇到 CALL 等子程序不进入其代码。（相当于 SoftICE 中的 F10）</p>
-</li>
-<li><p>F7：单步步入。功能同单步步过(F8)类似，区别是遇到 CALL 等子程序时会进入其中，进入后首先会停留在子程序的第一条指令上。（相当于 SoftICE 中的 F8）</p>
-</li>
-</ul>
-<p>F4：运行到选定位置。作用就是直接运行到光标所在位置处暂停。（相当于 SoftICE 中的 F7）</p>
-<p>F9：运行。按下这个键如果没有设置相应断点的话，被调试的程序将直接开始运行。（相当于 SoftICE 中的 F5）</p>
-<p>CTR+F9：执行到返回。此命令在执行到一个 ret (返回指令)指令时暂停，常用于从系统领空返回到我们调试的程序领空。（相当于 SoftICE 中的 F12）</p>
-<p>ALT+F9：执行到用户代码。可用于从系统领空快速返回到我们调试的程序领空。（相当于 SoftICE 中的 F11）</p>
-<p>其实，在OllyDbg中要找出UPX加壳文件的程序真正入口地址还是很简单的，在图7中第一句是PUSHAD，这是壳在保护现场环境，那么在OllyDbg中不需要跟踪，只需向下翻屏幕，看到“POPAD,JMP<strong><em>**</em></strong>”，就是真正的入口点了。我们可以在POPAD的下一句按下F2设置断点，让程序一开始就运行到这里，则前面的所有壳的干扰就可以被我们绕过了</p>
-]]></content>
-      
-        
-        <tags>
-            
-            <tag> CTF </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[Linux自定义系统调用]]></title>
       <url>https://b0lv42.github.io/2017/04/19/%E5%90%91linux%E5%86%85%E6%A0%B8%E6%B7%BB%E5%8A%A0%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8/</url>
       <content type="html"><![CDATA[<p>原文来自：<a href="https://tecotaku.cn/blog/?p=256" target="_blank" rel="external">Sino大佬的博客</a></p>
