@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="操作系统的期末课设第一项qwq 哇还没有写完的">
+<meta name="description" content="哇还没有写完的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux自定义系统调用">
 <meta property="og:url" content="https://b0lv42.github.io/2017/04/19/向linux内核添加系统调用/index.html">
 <meta property="og:site_name" content="b0lv42'blog - 不断探索!">
-<meta property="og:description" content="操作系统的期末课设第一项qwq 哇还没有写完的">
-<meta property="og:updated_time" content="2017-05-13T08:25:48.084Z">
+<meta property="og:description" content="哇还没有写完的">
+<meta property="og:updated_time" content="2019-05-30T03:33:13.744Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux自定义系统调用">
-<meta name="twitter:description" content="操作系统的期末课设第一项qwq 哇还没有写完的">
+<meta name="twitter:description" content="哇还没有写完的">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -186,7 +186,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ACM题解/">ACM题解</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/大作业/">大作业</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/收集的乱七八糟的东西！/">收集的乱七八糟的东西！</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/教程/">教程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/资料/">资料</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/零零碎碎的知识！/">零零碎碎的知识！</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ACM题解/">ACM题解</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/收集的乱七八糟的东西！/">收集的乱七八糟的东西！</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/教程/">教程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/资料/">资料</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/零零碎碎的知识！/">零零碎碎的知识！</a></li></ul>
                     </div>
                 </section>
                 
@@ -325,7 +325,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大作业/">大作业</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -335,8 +335,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>原文来自：<a href="https://tecotaku.cn/blog/?p=256" target="_blank" rel="external">Sino大佬的博客</a></p>
-<p><br></p>
+        <p><br></p>
 <h2 id="添加系统调用"><a href="#添加系统调用" class="headerlink" title="添加系统调用"></a>添加系统调用</h2><p><br></p>
 <h3 id="添加系统调用的头文件索引"><a href="#添加系统调用的头文件索引" class="headerlink" title="添加系统调用的头文件索引"></a>添加系统调用的头文件索引</h3><p>我们要调用syscall是通过unistd提供的一系列系统接口，其中由C提供的接口需要通过修改<code>unistd_64.h</code>这个文件来指定。<br>打开是存放内核源码的地方，进入子目录<code>arch/x86/include/generated/uapi/asm/</code></p>
 <blockquote>
@@ -386,8 +385,8 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2017/09/27/n阶魔方阵问题/">
-                    n阶奇数魔方阵问题
+                <a href="/2017/04/21/linux内核模块编程/">
+                    Linux内核模块编程
                 </a>
             </div>
         
@@ -462,7 +461,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/09/27/n阶魔方阵问题/" title="上一篇: n阶奇数魔方阵问题">
+            <a href="/2017/04/21/linux内核模块编程/" title="上一篇: Linux内核模块编程">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -476,7 +475,7 @@
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/10/17/老鼠走迷宫问题_C语言栈链写法/">老鼠走迷宫问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/16/约瑟夫环【链表C语言写法】/">约瑟夫环</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/27/n阶魔方阵问题/">n阶奇数魔方阵问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/19/向linux内核添加系统调用/">Linux自定义系统调用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/02/搭建博客/">利用hexo在windows下搭建静态博客ovo</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/02/找图片啊图标啊什么的/">找图片啊图标啊什么的</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/28/汇编语言入门/">汇编语言入门qwq</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/23/linux的fork(),waitpid()及wait()的用法/">linux的fork(),waitpid()及wait()的用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/11/HDOJ 2500 【简单题】做一个正气的杭电人/">HDOJ 2500 【简单题】做一个正气的杭电人</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/11/HDOJ 3790 【Dijkstra】最短路径问题/">HDOJ 3790 【Dijkstra】最短路径问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/11/HDOJ 2544 【Dijkstra】最短路/">HDOJ 2544 【Dijkstra】最短路</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/10/HDOJ 2066 【Dijkstra】一个人的旅行/">HDOJ 2066 【Dijkstra】一个人的旅行</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/09/HDOJ 1874 【FLoyd】【Bellman】畅通工程续/">HDOJ 1874 【FLoyd】【Bellman】【Dijkstra】畅通工程续</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/08/HDOJ 1215 【简单题】七夕节  &  HDOJ 1406 【简单题】完数/">HDOJ 1215 【简单题】七夕节  &  HDOJ 1406 【简单题】完数</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/06/HDOJ 1217 【Floyd】Arbitrage/">HDOJ 1217 【Floyd】Arbitrage</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/05/HDOJ 1869 【Floyd】六度分离/">HDOJ 1869 【Floyd】六度分离</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/04/HDOJ 1290 【递推】献给杭电五十周年校庆的礼物/">HDOJ 1290 【递推】献给杭电五十周年校庆的礼物</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/03/HDOJ 1051 【贪心】 Wooden Sticks/">HDOJ 1051 【贪心】 Wooden Sticks</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/02/HDOJ 1098 【数学题】Ignatius's puzzle/">HDOJ 1098 【数学题】Ignatius's puzzle</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/10/17/老鼠走迷宫问题_C语言栈链写法/">老鼠走迷宫问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/16/约瑟夫环【链表C语言写法】/">约瑟夫环</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/27/n阶魔方阵问题/">n阶奇数魔方阵问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/21/linux内核模块编程/">Linux内核模块编程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/19/向linux内核添加系统调用/">Linux自定义系统调用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/02/搭建博客/">利用hexo在windows下搭建静态博客ovo</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/02/找图片啊图标啊什么的/">找图片啊图标啊什么的</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/02/linux的fork(),waitpid()及wait()的用法/">linux的fork(),waitpid()及wait()的用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/28/汇编语言入门/">汇编语言入门qwq</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/11/HDOJ 2500 【简单题】做一个正气的杭电人/">HDOJ 2500 【简单题】做一个正气的杭电人</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/11/HDOJ 3790 【Dijkstra】最短路径问题/">HDOJ 3790 【Dijkstra】最短路径问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/11/HDOJ 2544 【Dijkstra】最短路/">HDOJ 2544 【Dijkstra】最短路</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/10/HDOJ 2066 【Dijkstra】一个人的旅行/">HDOJ 2066 【Dijkstra】一个人的旅行</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/09/HDOJ 1874 【FLoyd】【Bellman】畅通工程续/">HDOJ 1874 【FLoyd】【Bellman】【Dijkstra】畅通工程续</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/08/HDOJ 1215 【简单题】七夕节  &  HDOJ 1406 【简单题】完数/">HDOJ 1215 【简单题】七夕节  &  HDOJ 1406 【简单题】完数</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/06/HDOJ 1217 【Floyd】Arbitrage/">HDOJ 1217 【Floyd】Arbitrage</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/05/HDOJ 1869 【Floyd】六度分离/">HDOJ 1869 【Floyd】六度分离</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/04/HDOJ 1290 【递推】献给杭电五十周年校庆的礼物/">HDOJ 1290 【递推】献给杭电五十周年校庆的礼物</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/03/HDOJ 1051 【贪心】 Wooden Sticks/">HDOJ 1051 【贪心】 Wooden Sticks</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/02/HDOJ 1098 【数学题】Ignatius's puzzle/">HDOJ 1098 【数学题】Ignatius's puzzle</a></li></ul>
 
 
 
@@ -490,7 +489,7 @@
         <div id="footer-info">
             <div class="footer-left">
                 <i class="fa fa-copyright"></i> 
-                2016-2018 b0lv42
+                2016-2019 b0lv42
             </div>
             <div class="footer-right">
                 <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
