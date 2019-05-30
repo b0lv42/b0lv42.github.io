@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="模板题啦！ovo">
+<meta name="description" content="操作系统学习相关qwq">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HDOJ 3790 【Dijkstra】最短路径问题">
-<meta property="og:url" content="https://b0lv42.github.io/2017/03/11/HDOJ 3790 【Dijkstra】最短路径问题/index.html">
+<meta property="og:title" content="Linux内核模块编程">
+<meta property="og:url" content="https://b0lv42.github.io/2019/05/30/linux内核模块编程/index.html">
 <meta property="og:site_name" content="b0lv42'blog - 不断探索!">
-<meta property="og:description" content="模板题啦！ovo">
-<meta property="og:updated_time" content="2017-11-28T16:04:32.746Z">
+<meta property="og:description" content="操作系统学习相关qwq">
+<meta property="og:updated_time" content="2019-05-30T07:00:12.566Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HDOJ 3790 【Dijkstra】最短路径问题">
-<meta name="twitter:description" content="模板题啦！ovo">
+<meta name="twitter:title" content="Linux内核模块编程">
+<meta name="twitter:description" content="操作系统学习相关qwq">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -54,7 +54,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>HDOJ 3790 【Dijkstra】最短路径问题 | b0lv42&#39;blog - 不断探索!</title>
+<title>Linux内核模块编程 | b0lv42&#39;blog - 不断探索!</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -295,11 +295,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-HDOJ 3790 【Dijkstra】最短路径问题" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-linux内核模块编程" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/03/11/HDOJ 3790 【Dijkstra】最短路径问题/" class="article-date">
-      <time datetime="2017-03-11T13:03:10.000Z" itemprop="datePublished">2017-03-11</time>
+      <a href="/2019/05/30/linux内核模块编程/" class="article-date">
+      <time datetime="2019-05-30T06:51:11.000Z" itemprop="datePublished">2019-05-30</time>
 </a>
 
 
@@ -314,7 +314,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      HDOJ 3790 【Dijkstra】最短路径问题
+      Linux内核模块编程
     </h1>
   
 
@@ -325,7 +325,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ACM题解/">ACM题解</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -335,10 +335,13 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h3 id="【题目描述】"><a href="#【题目描述】" class="headerlink" title="【题目描述】"></a>【题目描述】</h3><p><a href="http://acm.hdu.edu.cn/showproblem.php?pid=3790" target="_blank" rel="external">http://acm.hdu.edu.cn/showproblem.php?pid=3790</a></p>
-<h3 id="【思路】"><a href="#【思路】" class="headerlink" title="【思路】"></a>【思路】</h3><p>松弛操作每更新一条边，不管被更新的点的cost值是否最小都要被更新，这里wa了3发…..<br>当被更新的点的dis值相等时再检查cost的值是否最小。<br><br><br><br></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> Max=<span class="number">2100000</span>;</div><div class="line"><span class="keyword">typedef</span> pair&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; Pair;</div><div class="line">priority_queue&lt;Pair,<span class="built_in">vector</span>&lt;Pair&gt;,greater&lt;Pair&gt; &gt; Q;</div><div class="line"></div><div class="line"><span class="keyword">int</span> n,S,T,tail,dis[<span class="number">1100</span>],head[<span class="number">1100</span>],cost[<span class="number">1100</span>];</div><div class="line"></div><div class="line"><span class="keyword">struct</span> data</div><div class="line">&#123;</div><div class="line">      <span class="keyword">int</span> c,w,to,next;</div><div class="line">&#125;k,edge[<span class="number">210000</span>];</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">build</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> v,<span class="keyword">int</span> d,<span class="keyword">int</span> p)</span></span></div><div class="line">&#123;</div><div class="line">      edge[tail].w=d;</div><div class="line">      edge[tail].to=v;</div><div class="line">      edge[tail].c=p;</div><div class="line">      edge[tail].next=head[u];</div><div class="line">      head[u]=tail++;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">Dij</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">      Pair s,u;</div><div class="line">      <span class="keyword">int</span> v,val;</div><div class="line"></div><div class="line">      dis[S]=<span class="number">0</span>;</div><div class="line">      cost[S]=<span class="number">0</span>;</div><div class="line">      s.first=<span class="number">0</span>;</div><div class="line">      s.second=S;</div><div class="line">      Q.push(s);</div><div class="line"></div><div class="line">      <span class="keyword">while</span> (!Q.empty())</div><div class="line">      &#123;</div><div class="line">            u=Q.top();</div><div class="line">            Q.pop();</div><div class="line">            v=u.second;</div><div class="line">            val=u.first;</div><div class="line">            <span class="keyword">if</span> (dis[v]&lt;val) <span class="keyword">continue</span>;</div><div class="line"></div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i=head[v];i!=<span class="number">-1</span>;i=edge[i].next)</div><div class="line">            &#123;</div><div class="line">                  k=edge[i];</div><div class="line">                  <span class="keyword">if</span> (dis[k.to]&gt;dis[v]+k.w)</div><div class="line">                  &#123;</div><div class="line">                        dis[k.to]=dis[v]+k.w;</div><div class="line">                        Q.push(Pair(dis[k.to],k.to));</div><div class="line">                        cost[k.to]=cost[v]+k.c;</div><div class="line">                  &#125;</div><div class="line">                  <span class="keyword">else</span> <span class="keyword">if</span> (dis[k.to]==dis[v]+k.w)</div><div class="line">                        cost[k.to]=min(cost[k.to],cost[v]+k.c);</div><div class="line">            &#125;</div><div class="line">      &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">      <span class="keyword">int</span> n,m,u,v,d,p;</div><div class="line"></div><div class="line">      <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n,&amp;m)!=EOF)</div><div class="line">      &#123;</div><div class="line">            <span class="keyword">if</span> (!n &amp;&amp; !m) <span class="keyword">break</span>;</div><div class="line"></div><div class="line">            tail=<span class="number">0</span>;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">1100</span>;i++) head[i]=<span class="number">-1</span>;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">1100</span>;i++) dis[i]=Max;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">1100</span>;i++) cost[i]=Max;</div><div class="line"></div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;i++)</div><div class="line">            &#123;</div><div class="line">                  <span class="built_in">scanf</span>(<span class="string">"%d%d%d%d"</span>,&amp;u,&amp;v,&amp;d,&amp;p);</div><div class="line">                  build(u,v,d,p);</div><div class="line">                  build(v,u,d,p);</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;S,&amp;T);</div><div class="line"></div><div class="line">            Dij();</div><div class="line">            <span class="built_in">printf</span>(<span class="string">"%d %d\n"</span>,dis[T],cost[T]);</div><div class="line">      &#125;</div><div class="line"></div><div class="line">      <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">while</span> (!q.empty())</div><div class="line">&#123;</div><div class="line">	xx = q.front();</div><div class="line">	q.pop();</div><div class="line">	QM[xx] = <span class="number">0</span>;</div><div class="line"></div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= nNum; ++i)</div><div class="line">	&#123;</div><div class="line">		<span class="keyword">if</span> (dist[i] &gt; dist[xx] + g[xx][i])</div><div class="line">		&#123;</div><div class="line">			dist[i] = dist[xx] + g[xx][i];</div><div class="line">			px[i] = px[xx] + cost[xx][i];</div><div class="line">			<span class="keyword">if</span> (QM[i] == <span class="number">0</span>)</div><div class="line">			&#123;</div><div class="line">				QM[i] = <span class="number">1</span>;</div><div class="line">				q.push(i);</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">else</span> <span class="keyword">if</span> (dist[i] == dist[xx] + g[xx][i] &amp;&amp; px[i] &gt; px[xx] + cost[xx][i])</div><div class="line">		&#123;</div><div class="line">			px[i] = px[xx] + cost[xx][i];</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <p>建文件夹名字为插入到系统模块里面的名称.c文件<br>makefile没有后缀名 【作业说明书<br>默认当前后缀下寻找</p>
+<p>hello world”的示例代码如下：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"> <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;linux/init.h&gt;</span></span></div><div class="line"> <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;linux/module.h&gt;</span></span></div><div class="line"> <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;linux/kernel.h&gt;</span></span></div><div class="line"></div><div class="line"> <span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">hello_init</span><span class="params">(<span class="keyword">void</span>)</span></span></div><div class="line"> &#123;</div><div class="line"> printk(KERN_ALERT<span class="string">"hello,world\n"</span>);</div><div class="line"> <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line"> &#125;</div><div class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">hello_exit</span><span class="params">(<span class="keyword">void</span>)</span></span></div><div class="line">&#123;</div><div class="line">printk(KERN_ALERT<span class="string">"goodbye\n"</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line">module_init(hello_init);</div><div class="line">module_exit(hello_exit);</div><div class="line">MODULE_LICENSE(<span class="string">"GPL"</span>);</div></pre></td></tr></table></figure></p>
+<h1 id="头文件声明："><a href="#头文件声明：" class="headerlink" title="头文件声明："></a>头文件声明：</h1><p>第 1、2 行是模块编程的必需头文件。module.h 包含了大量加载模块所需要的函数和符<br>号的定义；init.h 包含了模块初始化和清理函数的定义。如果模块在加载时允许用户传递参<br>数，模块还应该包含 moduleparam.h 头文件。</p>
+<h1 id="模块许可申明："><a href="#模块许可申明：" class="headerlink" title="模块许可申明："></a>模块许可申明：</h1><p><code>MODULE_LICENSE(&quot;GPL&quot;)</code>是模块许可声明。Linux 内核从 2.4.10 版本内核开始，模块必须通过MODULE_LICENSE 宏声明此模块的许可证，否则在加载此模块时，会收到内核被污染 “kernel tainted” 的警告。从 linux/module.h 文件中可以看到，被内核接受的有意义的许可证有 “GPL”，<br>“GPL v2”，“GPL and additional rights”，“Dual BSD/GPL”，“Dual MPL/GPL”，“Proprietary”，其中“GPL” 是指明这是 GNU General Public License 的任意版本，其他许可证大家可以查阅资料进一步了解。MODULE_LICENSE 宏声明可以写在模块的任何地方（但必须在函数外面），不过惯例是写在模块最后。</p>
+<h1 id="初始化与清理函数的注册："><a href="#初始化与清理函数的注册：" class="headerlink" title="初始化与清理函数的注册："></a>初始化与清理函数的注册：</h1><p>初始化函数通常定义为：<br>static int <strong>init init_func(void)<br>{<br>   //初始化代码<br>}<br>module_init(init_func);<br>般情况下，初始化函数应当申明为 static，以便它们不会在特定文件之外可见。如果<br>该函数只是在初始化使用一次，可在声明语句中加</strong>init 标识，则模块在加载后会丢弃这个<br>初始化函数，释放其内存空间。<br>清理函数通常定义为：<br>static void <strong>exit exit_func(void)<br>{<br>//清理代码<br>}<br>module_exit(exit_func);<br>清理函数没有返回值，因此被声明为 void。声明语句中的</strong>exit 的含义与初始化函数中<br>的__init 类似，不再重述。</p>
+<p>obj-m :=hello.o //生成的模块名称是：hello.ko<br>KDIR :=/lib/modules/$(shell uname -r)/build<br>PWD :=$(shell pwd) // PWD 是当前目录<br>default:<br>    make -C $(KDIR) M=$(PWD) modules // -C 指定内核源码目录，M 指定模块源码目录<br>clean:<br>    make -C $(KDIR) M=$(PWD) clean</p>
+
       
     </div>
     
@@ -350,15 +353,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2017/03/11/HDOJ 2500 【简单题】做一个正气的杭电人/">
-                    HDOJ 2500 【简单题】做一个正气的杭电人
+                <a href="/2019/05/30/linux的fork(),waitpid()及wait()的用法/">
+                    linux的fork(),waitpid()及wait()的用法
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2017/03/11/HDOJ 2544 【Dijkstra】最短路/">
-                    HDOJ 2544 【Dijkstra】最短路
+                <a href="/2017/10/17/老鼠走迷宫问题_C语言栈链写法/">
+                    老鼠走迷宫问题
                 </a>
             </div>
         
@@ -370,7 +373,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#【题目描述】"><span class="toc-number">1.</span> <span class="toc-text">【题目描述】</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#【思路】"><span class="toc-number">2.</span> <span class="toc-text">【思路】</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#头文件声明："><span class="toc-number">1.</span> <span class="toc-text">头文件声明：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#模块许可申明："><span class="toc-number">2.</span> <span class="toc-text">模块许可申明：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#初始化与清理函数的注册："><span class="toc-number">3.</span> <span class="toc-text">初始化与清理函数的注册：</span></a></li></ol>
         
     </div>
     <style>
@@ -406,7 +409,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"HDOJ 3790 【Dijkstra】最短路径问题　| b0lv42'blog - 不断探索!　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Linux内核模块编程　| b0lv42'blog - 不断探索!　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -426,7 +429,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/03/11/HDOJ 2500 【简单题】做一个正气的杭电人/" title="上一篇: HDOJ 2500 【简单题】做一个正气的杭电人">
+            <a href="/2019/05/30/linux的fork(),waitpid()及wait()的用法/" title="上一篇: linux的fork(),waitpid()及wait()的用法">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -434,7 +437,7 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2017/03/11/HDOJ 2544 【Dijkstra】最短路/" title="下一篇: HDOJ 2544 【Dijkstra】最短路">
+            <a href="/2017/10/17/老鼠走迷宫问题_C语言栈链写法/" title="下一篇: 老鼠走迷宫问题">
                 <i class="fa fa-angle-right"></i>
             </a>
         
